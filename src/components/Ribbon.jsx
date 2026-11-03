@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef } from "react";
-import { motion, useAnimationFrame, useReducedMotion } from "motion/react";
+import { motion, useAnimationFrame, useInView, useReducedMotion } from "motion/react";
 
 import { toPathD } from "../utils/geometry";
 
@@ -22,6 +22,9 @@ const Ribbon = ({
   const reduceMotion = useReducedMotion();
   const textPathRef = useRef(null);
   const textRef = useRef(null);
+  const svgRef = useRef(null);
+  // Only animate while on (or near) screen: moving the text repaints the whole SVG every frame.
+  const isInView = useInView(svgRef, { margin: "200px" });
   const phraseLength = useRef(0);
   const offset = useRef(0);
 
@@ -49,13 +52,14 @@ const Ribbon = ({
   const reveal = (to) => (drawOnMount ? { animate: to } : { whileInView: to, viewport: { once: true, amount: 0.2 } });
 
   useAnimationFrame((_, delta) => {
-    if (reduceMotion || !phraseLength.current || !textPathRef.current) return;
+    if (reduceMotion || !isInView || !phraseLength.current || !textPathRef.current) return;
     offset.current = (offset.current + (delta / 1000) * speed) % phraseLength.current;
     textPathRef.current.setAttribute("startOffset", -phraseLength.current + offset.current);
   });
 
   return (
     <svg
+      ref={svgRef}
       className={`pointer-events-none absolute left-0 top-0 h-auto w-full overflow-visible ${className}`}
       viewBox={`0 0 ${vw} ${vh}`}
       aria-hidden="true"
