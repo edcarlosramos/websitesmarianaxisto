@@ -35,7 +35,7 @@ const Testimonials = () => (
           <span aria-hidden="true" className="font-display block h-[0.55em] text-[90px] leading-none text-lilac md:text-[132px] lg:text-[180px]">
             “
           </span>
-          <blockquote className="font-display mt-8 text-[30px] leading-[1.2] text-lavender md:text-[44px] lg:mt-14 lg:text-[44px] lg:leading-[1.18]">
+          <blockquote className="font-inter mt-8 text-[30px] leading-[1.2] text-lavender md:text-[44px] lg:mt-14 lg:text-[44px] lg:leading-[1.18]">
             {featuredTestimonial.content}
           </blockquote>
           <figcaption className="mt-7 flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-5">
@@ -53,7 +53,7 @@ const Testimonials = () => (
               className="border-t border-rule-dark pt-8 pb-10 first:border-t-0 md:border-t md:first:border-t md:pb-0 lg:border-t-0 lg:pt-0 lg:first:border-t-0"
             >
               <Tag>{item.tag}</Tag>
-              <blockquote className="font-display mt-6 text-[18px] leading-[1.45] text-lavender md:text-[20px]">“{item.content}”</blockquote>
+              <blockquote className="font-inter mt-6 text-[18px] leading-[1.45] text-lavender md:text-[20px]">“{item.content}”</blockquote>
               <figcaption className="mt-5">
                 <Attribution />
               </figcaption>

@@ -34,7 +34,7 @@ const Problem = () => (
               <span className="w-5 pt-1.5 font-sans text-[12px] font-semibold tracking-[0.07em] text-lilac md:w-6 md:text-[14px]">
                 0{index + 1}
               </span>
-              <span className="font-display flex-1 text-[20px] leading-[1.3] text-lavender md:text-[24px]">{pain}</span>
+              <span className="font-inter flex-1 text-[20px] leading-[1.3] text-lavender md:text-[24px]">{pain}</span>
             </Reveal>
           ))}
         </ol>

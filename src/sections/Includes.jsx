@@ -38,7 +38,7 @@ const Includes = () => (
               {item.id}
             </span>
             <div>
-              <h3 className="font-display text-[22px] leading-[1.2] text-navy-900 md:text-[28px]">{item.title}</h3>
+              <h3 className="font-inter text-[22px] leading-[1.2] text-navy-900 md:text-[28px]">{item.title}</h3>
               <p className={`mt-2 font-sans text-[15px] leading-[1.6] md:text-[17px] lg:max-w-[540px] ${item.highlight ? "text-navy-900" : "text-navy-700"}`}>
                 {item.content}
               </p>

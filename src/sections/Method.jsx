@@ -46,7 +46,7 @@ const Method = () => (
               </span>
             </div>
             <div className="mt-4 md:mt-1.5 lg:mt-6">
-              <h3 className="font-display text-[26px] leading-[1.15] text-navy-800 md:text-[30px] lg:text-[32px]">{pillar.title}</h3>
+              <h3 className="font-inter text-[26px] leading-[1.15] text-navy-800 md:text-[30px] lg:text-[32px]">{pillar.title}</h3>
               <p className={`${styles.body} mt-2.5 text-navy-700 md:max-w-[440px] lg:mt-4 lg:max-w-[340px]`}>{pillar.content}</p>
             </div>
           </Reveal>

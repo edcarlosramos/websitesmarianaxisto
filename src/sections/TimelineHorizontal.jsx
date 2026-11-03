@@ -38,7 +38,7 @@ const TimelineHorizontal = () => (
                 transition={{ duration: 0.7, ease: [0.2, 0, 0, 1], delay: 0.8 + index * 0.12 }}
               >
                 {isLast && <p className="mb-2 font-sans text-[12px] font-semibold uppercase tracking-[0.17em] text-wine">Ao final</p>}
-                <p className="font-display text-[max(17px,1.46cqw)] leading-[1.3] text-navy-800">{outcome}</p>
+                <p className="font-inter text-[max(17px,1.46cqw)] leading-[1.3] text-navy-800">{outcome}</p>
               </motion.div>
             </div>
           </li>

@@ -12,7 +12,7 @@ const FaqItem = ({ id, question, answer, isOpen, onToggle }) => (
         className="group flex w-full items-start justify-between gap-6 py-6 text-left md:py-7"
       >
         <span
-          className={`font-display text-[20px] leading-[1.25] transition-colors duration-200 md:text-[24px] lg:text-[26px] ${
+          className={`font-inter text-[20px] leading-[1.25] transition-colors duration-200 md:text-[24px] lg:text-[26px] ${
             isOpen ? "text-navy-900" : "text-navy-900 group-hover:text-wine"
           }`}
         >
