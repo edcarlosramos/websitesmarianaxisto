@@ -1,4 +1,4 @@
-import { print01, print02, print03, print04, print05, print06, print07 } from "../assets";
+import { print01, print02, print03, print04, print05, print06, print07, print08 } from "../assets";
 
 export const WHATSAPP_URL = "https://api.whatsapp.com/message/WBR6VBIYU6KCN1?autoload=1&app_absent=0";
 
@@ -86,19 +86,20 @@ export const testimonials = [
 
 /* WhatsApp screenshots: width/height are the intrinsic image sizes */
 export const prints = {
-  p01: { id: "p01", src: print01, width: 439, height: 440, alt: "Mensagem de aluna: a comunidade ajudou a destravar a timidez e progredir no inglês." },
-  p02: { id: "p02", src: print02, width: 364, height: 440, alt: "Mensagem de aluna elogiando a plataforma e as aulas, muito bem explicadas e estruturadas." },
-  p03: { id: "p03", src: print03, width: 275, height: 440, alt: "Mensagem de aluna agradecendo: hoje enxerga o inglês como algo leve e gosta de estudar." },
-  p04: { id: "p04", src: print04, width: 262, height: 440, alt: "Mensagem de aluna contando que se sente mais segura e confiante com o inglês." },
-  p05: { id: "p05", src: print05, width: 275, height: 440, alt: "Mensagem de aluna: depois do curso passou a entender músicas e já indicou para todo mundo." },
-  p06: { id: "p06", src: print06, width: 287, height: 440, alt: "Mensagens de aluna relatando evolução e facilidade para entender os diálogos." },
-  p07: { id: "p07", src: print07, width: 203, height: 440, alt: "Mensagens de aluno contando que fez uma entrevista inteira em inglês para vaga de trainee." },
+  p01: { id: "p01", src: print01, width: 700, height: 1075, alt: "Mensagens de aluna contando que já sente evolução e que entendeu com facilidade os diálogos da aula." },
+  p02: { id: "p02", src: print02, width: 700, height: 846, alt: "Mensagem de aluna elogiando a plataforma e as aulas, muito bem explicadas e estruturadas." },
+  p03: { id: "p03", src: print03, width: 700, height: 1175, alt: "Mensagem de aluna agradecendo: hoje se sente muito mais segura e confiante com o inglês." },
+  p04: { id: "p04", src: print04, width: 700, height: 1118, alt: "Mensagem de aluna agradecendo: hoje enxerga o inglês como algo leve e até gosta de estudar." },
+  p05: { id: "p05", src: print05, width: 439, height: 440, alt: "Mensagem de aluna: a comunidade ajudou a destravar a timidez e progredir no inglês." },
+  p06: { id: "p06", src: print06, width: 700, height: 663, alt: "Mensagem de aluna dizendo que se sente muito à vontade nas aulas e que o trabalho é incrível." },
+  p07: { id: "p07", src: print07, width: 700, height: 1515, alt: "Mensagens de aluno contando que fez uma entrevista inteira em inglês para vaga de trainee." },
+  p08: { id: "p08", src: print08, width: 700, height: 1121, alt: "Mensagem de aluna: depois do curso passou a entender até músicas e já indicou para todo mundo." },
 };
 
 export const printColumns = {
-  desktop: [["p07", "p02", "p06"], ["p03", "p04", "p01"], ["p05", "p06", "p01", "p02"]],
-  tablet: [["p07", "p02", "p05", "p01"], ["p03", "p04", "p06", "p01"]],
-  mobile: [["p07", "p03", "p04", "p02", "p05", "p06", "p01"]],
+  desktop: [["p07", "p02", "p06"], ["p03", "p05", "p01"], ["p08", "p04", "p06", "p02"]],
+  tablet: [["p07", "p02", "p08", "p05"], ["p03", "p04", "p06", "p01"]],
+  mobile: [["p07", "p03", "p04", "p02", "p08", "p06", "p05", "p01"]],
 };
 
 export const includes = [

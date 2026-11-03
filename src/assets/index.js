@@ -8,6 +8,7 @@ import print04 from "./prints/print-04.webp";
 import print05 from "./prints/print-05.webp";
 import print06 from "./prints/print-06.webp";
 import print07 from "./prints/print-07.webp";
+import print08 from "./prints/print-08.webp";
 
 export {
   logo,
@@ -20,4 +21,5 @@ export {
   print05,
   print06,
   print07,
+  print08,
 };
