@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-import { mariana } from "../assets";
+import { marianaHero } from "../assets";
 import { ribbonPhrases } from "../constants";
 import { Ribbon, Stamp } from "../components";
 
@@ -16,7 +16,7 @@ const ART = {
     numeral: { x: 640, y: 150, size: 600 },
     label: { x: 1120, y: 150, size: 64 },
     photo: { x: 890, y: 290, w: 491 },
-    stamp: { x: 1236, y: 610, w: 156 },
+    stamp: { x: 730, y: 600, w: 156 },
     ribbon: { pts: [-60, 1050, 320, 1045, 580, 1000, 740, 800, 870, 630, 1000, 520, 1180, 430, 1300, 370, 1400, 320, 1700, 160, 2000, 0, 2300, -160, 2600, -320], band: 60, font: 16 },
   },
   tablet: {
@@ -33,7 +33,7 @@ const ART = {
     className: "md:hidden relative mt-10 w-full",
     numeral: { x: 40, y: 40, size: 300 },
     label: { x: 236, y: 30, size: 30 },
-    photo: { x: 120, y: 68, w: 280 },
+    photo: { x: 104, y: 80, w: 300 },
     stamp: { x: 16, y: 250, w: 104 },
     ribbon: { pts: [-30, 470, 120, 480, 190, 400, 240, 300, 300, 190, 360, 150, 460, 90], band: 40, font: 11 },
   },
@@ -74,10 +74,10 @@ const HeroArt = ({ variant }) => {
       </motion.span>
 
       <motion.img
-        src={mariana}
+        src={marianaHero}
         alt=""
         width="1000"
-        height="1753"
+        height="1500"
         fetchPriority="high"
         decoding="async"
         className="absolute h-auto max-w-none"

@@ -23,12 +23,12 @@ const Portrait = () => (
     <Reveal y={40} className="relative aspect-[500/760] w-full overflow-hidden rounded-t-full bg-wine">
       <img
         src={mariana}
-        alt="Mariana Xisto sorrindo, de blusa branca"
+        alt="Mariana Xisto sorrindo, de blazer preto com broche das bandeiras do Brasil e dos Estados Unidos"
         loading="lazy"
         decoding="async"
         width="1000"
-        height="1753"
-        className="absolute left-[-12%] top-[8%] h-auto w-[128%] max-w-none"
+        height="1500"
+        className="absolute inset-0 size-full object-cover object-[50%_35%]"
       />
     </Reveal>
     <span className="absolute -bottom-3 right-[12%] inline-flex rounded-full bg-lilac px-3.5 py-[7px] font-sans text-[12px] font-semibold uppercase leading-[1.2] tracking-[0.12em] text-navy-900 md:right-[8%] lg:-right-16">

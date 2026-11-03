@@ -1,6 +1,7 @@
 import logo from "./logo.webp";
 import key from "./key.webp";
 import mariana from "./mariana.webp";
+import marianaHero from "./mariana-hero.webp";
 import print01 from "./prints/print-01.webp";
 import print02 from "./prints/print-02.webp";
 import print03 from "./prints/print-03.webp";
@@ -14,6 +15,7 @@ export {
   logo,
   key,
   mariana,
+  marianaHero,
   print01,
   print02,
   print03,
