@@ -8,7 +8,7 @@
   --color-wine-900: #5c0503;
   --color-lavender: #e8ebf7;
   --color-paper: #fbfbfe;
-  --color-lilac: #ffe42b;
+  --color-lilac: #d9b155;
   --color-lime: #d4f25a;
   --color-lime-soft: #e6fa8f;
   --color-lime-deep: #b8d63a;
@@ -27,6 +27,20 @@
 
 :root {
   --container: 1200px;
+  /* Brushed-gold blend (matches the key logo); solid --color-lilac is its midtone */
+  --gradient-gold: linear-gradient(
+    120deg,
+    #b07e1f 0%,
+    #d9b155 30%,
+    #f7e3a0 52%,
+    #dcb24f 72%,
+    #b3801d 100%
+  );
+}
+
+/* Filled gold surfaces get the blended tone instead of a flat color */
+.bg-lilac {
+  background-image: var(--gradient-gold);
 }
 
 html {
