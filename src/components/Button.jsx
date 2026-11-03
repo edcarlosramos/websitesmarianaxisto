@@ -4,12 +4,12 @@ import { WHATSAPP_URL } from "../constants";
 
 const surfaces = {
   light: {
-    root: "bg-navy-900 text-lavender hover:bg-wine active:bg-wine-900 focus-visible:outline-wine",
+    root: "bg-green text-white hover:bg-green-hover active:bg-green-active focus-visible:outline-green",
     chip: "bg-lime text-navy-900",
   },
   dark: {
-    root: "bg-lime text-navy-900 hover:bg-lime-soft active:bg-lime-deep focus-visible:outline-lavender",
-    chip: "bg-navy-900 text-lime",
+    root: "bg-green text-white hover:bg-green-hover active:bg-green-active focus-visible:outline-lavender",
+    chip: "bg-lime text-navy-900",
   },
 };
 
