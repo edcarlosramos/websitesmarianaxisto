@@ -1,8 +1,47 @@
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
-import { key, mariana } from "../assets";
+import { key, mariana, mariana02, mariana03 } from "../assets";
 import { Overline, Reveal } from "../components";
 import styles from "../style";
+
+const photos = [
+  { src: mariana, alt: "Mariana Xisto sorrindo, de perfil, de blazer preto com broche das bandeiras do Brasil e dos Estados Unidos" },
+  { src: mariana02, alt: "Mariana Xisto sorrindo de braços cruzados, com blazer preto sobre os ombros" },
+  { src: mariana03, alt: "Mariana Xisto sorrindo, sentada, com um tablet azul e uma caneta nas mãos" },
+];
+const PHOTO_INTERVAL = 4000;
+
+// Crossfades the portrait photos inside the arch. Stays on the first one when the user prefers reduced motion.
+const PhotoRotator = () => {
+  const reduceMotion = useReducedMotion();
+  // The previous photo stays fully opaque underneath while the next one fades in on top, so the page never shows through mid-fade.
+  const [{ active, previous }, setSlides] = useState({ active: 0, previous: null });
+
+  useEffect(() => {
+    if (reduceMotion) return undefined;
+    const timer = setInterval(() => setSlides(({ active: i }) => ({ active: (i + 1) % photos.length, previous: i })), PHOTO_INTERVAL);
+    return () => clearInterval(timer);
+  }, [reduceMotion]);
+
+  return photos.map((photo, index) => (
+    <motion.img
+      key={photo.src}
+      src={photo.src}
+      alt={index === active ? photo.alt : ""}
+      aria-hidden={index === active ? undefined : true}
+      loading="lazy"
+      decoding="async"
+      width="1000"
+      height="1500"
+      className="absolute inset-0 size-full object-cover object-[50%_35%]"
+      style={{ zIndex: index === active ? 2 : index === previous ? 1 : 0 }}
+      initial={false}
+      animate={{ opacity: index === active || index === previous ? 1 : 0 }}
+      transition={{ duration: index === active ? 1 : 0, ease: "easeInOut" }}
+    />
+  ));
+};
 
 const Portrait = () => (
   // On mobile the top margin reserves room above the arch so the floating key never overlaps the title or the photo.
@@ -20,18 +59,10 @@ const Portrait = () => (
       viewport={{ once: true }}
       transition={{ duration: 1.2, ease: [0.2, 0, 0, 1] }}
     />
-    <Reveal y={40} className="relative aspect-[500/760] w-full overflow-hidden rounded-t-full bg-wine">
-      <img
-        src={mariana}
-        alt="Mariana Xisto sorrindo, de blazer preto com broche das bandeiras do Brasil e dos Estados Unidos"
-        loading="lazy"
-        decoding="async"
-        width="1000"
-        height="1500"
-        className="absolute inset-0 size-full object-cover object-[50%_35%]"
-      />
+    <Reveal y={40} className="relative isolate aspect-[500/760] w-full overflow-hidden rounded-t-full">
+      <PhotoRotator />
     </Reveal>
-    <span className="absolute -bottom-3 right-[12%] inline-flex rounded-full bg-lilac px-3.5 py-[7px] font-sans text-[12px] font-semibold uppercase leading-[1.2] tracking-[0.12em] text-navy-900 md:right-[8%] lg:-right-16">
+    <span className="absolute -bottom-3 right-[12%] z-10 inline-flex rounded-full bg-lilac px-3.5 py-[7px] font-sans text-[12px] font-semibold uppercase leading-[1.2] tracking-[0.12em] text-navy-900 md:right-[8%] lg:-right-16">
       Criadora do Método Maker
     </span>
   </div>
