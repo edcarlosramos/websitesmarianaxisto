@@ -140,7 +140,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
               <p className="mt-1 font-sans text-[13px] text-muted-dark">@marianaxistobr</p>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 h-[170px]">
+            {/* Short phones (e.g. iPhone SE): no room under the links, so the ribbon would cover them. */}
+            <div className="absolute inset-x-0 bottom-0 h-[170px] [@media(max-height:760px)]:hidden">
               <Ribbon
                 pts={[-30, 140, 120, 150, 215, 110, 290, 75, 350, 50, 390, 30, 430, 10]}
                 viewBox={[390, 170]}

@@ -99,7 +99,8 @@ export const prints = {
 export const printColumns = {
   desktop: [["p07", "p02", "p06"], ["p03", "p05", "p01"], ["p08", "p04", "p06", "p02"]],
   tablet: [["p07", "p02", "p08", "p05"], ["p03", "p04", "p06", "p01"]],
-  mobile: [["p07", "p03", "p04", "p02", "p08", "p06", "p05", "p01"]],
+  // Shorter list on phones: the looping column is one tall layer kept in GPU memory.
+  mobile: [["p07", "p03", "p08", "p04", "p05"]],
 };
 
 export const includes = [

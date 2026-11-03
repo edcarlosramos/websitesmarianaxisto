@@ -3,6 +3,11 @@ import { motion, useAnimationFrame, useInView, useReducedMotion } from "motion/r
 
 import { toPathD } from "../utils/geometry";
 
+// Phones and tablets: fewer, slower ribbon updates.
+const isTouch = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+const TOUCH_FRAME_MS = 1000 / 30;
+const TOUCH_SPEED = 0.6;
+
 // A thick band that follows a bézier path with an English phrase flowing along it.
 // The phrase drifts slowly along the band ("a voz que flui"); the band draws itself in on view.
 const Ribbon = ({
@@ -27,6 +32,7 @@ const Ribbon = ({
   const isInView = useInView(svgRef, { margin: "200px" });
   const phraseLength = useRef(0);
   const offset = useRef(0);
+  const pending = useRef(0);
 
   const d = useMemo(() => toPathD(pts), [pts]);
   const [vw, vh] = viewBox;
@@ -53,7 +59,12 @@ const Ribbon = ({
 
   useAnimationFrame((_, delta) => {
     if (reduceMotion || !isInView || !phraseLength.current || !textPathRef.current) return;
-    offset.current = (offset.current + (delta / 1000) * speed) % phraseLength.current;
+    // Touch devices: repaint at ~30fps and drift slower. Each repaint redraws the whole SVG on the CPU.
+    pending.current += delta;
+    if (isTouch && pending.current < TOUCH_FRAME_MS) return;
+    const elapsed = pending.current;
+    pending.current = 0;
+    offset.current = (offset.current + (elapsed / 1000) * speed * (isTouch ? TOUCH_SPEED : 1)) % phraseLength.current;
     textPathRef.current.setAttribute("startOffset", -phraseLength.current + offset.current);
   });
 

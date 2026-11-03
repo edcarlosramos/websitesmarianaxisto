@@ -54,7 +54,7 @@ const TimelineVertical = () => {
                   {isLast && (
                     <p className="absolute -top-6 font-sans text-[12px] font-semibold uppercase tracking-[0.17em] text-wine">Ao final</p>
                   )}
-                  <p className="font-display max-w-[440px] leading-[1.3] text-navy-800" style={{ fontSize: c.size }}>
+                  <p className="font-inter max-w-[440px] leading-[1.3] text-navy-800" style={{ fontSize: c.size }}>
                     {outcome}
                   </p>
                 </motion.div>

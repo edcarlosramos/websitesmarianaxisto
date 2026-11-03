@@ -27,7 +27,8 @@ const Navbar = () => {
       <motion.header
         className={`fixed inset-x-0 top-0 z-30 transition-[background-color,box-shadow] duration-300 ${
           isScrolled
-            ? "bg-lavender/90 shadow-[0_1px_0_var(--color-rule-light),0_8px_24px_-12px_rgb(18_21_46/0.25)] backdrop-blur-md"
+            ? // Phones get a solid background: the blur would be recomputed on every scrolled frame.
+              "bg-lavender shadow-[0_1px_0_var(--color-rule-light),0_8px_24px_-12px_rgb(18_21_46/0.25)] lg:bg-lavender/90 lg:backdrop-blur-md"
             : ""
         }`}
         initial={{ opacity: 0, y: -16 }}

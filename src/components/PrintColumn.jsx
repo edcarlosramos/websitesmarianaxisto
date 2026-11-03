@@ -1,4 +1,5 @@
-import { useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { useInView, useReducedMotion } from "motion/react";
 
 import { prints } from "../constants";
 import PrintCard from "./PrintCard";
@@ -8,14 +9,21 @@ import PrintCard from "./PrintCard";
 // Each item carries its own bottom spacing so both copies have exactly the same height.
 const PrintColumn = ({ items, duration = 60, offset = 0, reverse = false, gap = 32, className = "" }) => {
   const reduceMotion = useReducedMotion();
+  const ref = useRef(null);
+  // The column is a very tall layer: stop animating it while the section is off screen.
+  const isInView = useInView(ref, { margin: "100px" });
   const list = items.map((key) => prints[key]);
   const copies = reduceMotion ? [0] : [0, 1];
 
   return (
-    <div className={`group relative ${className}`} style={{ marginTop: offset }}>
+    <div ref={ref} className={`group relative ${className}`} style={{ marginTop: offset }}>
       <ul
         className={reduceMotion ? "" : "print-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"}
-        style={{ "--marquee-duration": `${duration}s`, "--marquee-direction": reverse ? "reverse" : "normal" }}
+        style={{
+          "--marquee-duration": `${duration}s`,
+          "--marquee-direction": reverse ? "reverse" : "normal",
+          animationPlayState: isInView ? undefined : "paused",
+        }}
       >
         {copies.map((copy) =>
           list.map((print, index) => (
