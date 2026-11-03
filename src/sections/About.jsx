@@ -5,7 +5,8 @@ import { Overline, Reveal } from "../components";
 import styles from "../style";
 
 const Portrait = () => (
-  <div className="relative mx-auto w-[300px] md:mx-0 md:ml-auto md:w-[400px] lg:ml-0 lg:w-[500px]">
+  // On mobile the top margin reserves room above the arch so the floating key never overlaps the title or the photo.
+  <div className="relative mx-auto mt-24 w-[300px] md:mx-0 md:mt-0 md:ml-auto md:w-[400px] lg:ml-0 lg:w-[500px]">
     <motion.img
       src={key}
       alt=""
@@ -13,7 +14,7 @@ const Portrait = () => (
       loading="lazy"
       width="640"
       height="229"
-      className="absolute -left-8 top-4 z-10 w-[150px] md:-left-[300px] md:top-6 md:w-[240px] lg:-left-[100px] lg:-top-10 lg:w-[300px]"
+      className="key-float absolute left-0 -top-[93px] w-[130px] md:-left-[300px] md:top-6 md:w-[240px] lg:-left-[100px] lg:-top-14 lg:w-[300px]"
       initial={{ rotate: -60, opacity: 0 }}
       whileInView={{ rotate: -38, opacity: 1 }}
       viewport={{ once: true }}

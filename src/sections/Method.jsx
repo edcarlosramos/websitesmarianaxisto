@@ -12,7 +12,7 @@ const Method = () => (
       loading="lazy"
       width="640"
       height="229"
-      className="absolute right-5 top-6 w-[120px] -rotate-[18deg] md:right-7 md:top-10 md:w-[180px] lg:right-[max(90px,calc(50%-630px))] lg:top-10 lg:w-[230px]"
+      className="key-float absolute right-5 top-6 w-[120px] -rotate-[18deg] md:right-7 md:top-10 md:w-[180px] lg:right-[max(90px,calc(50%-630px))] lg:top-10 lg:w-[230px]"
     />
 
     <div className={styles.container}>
