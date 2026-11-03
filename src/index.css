@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-900: #12152e;
+  --color-navy-800: #1e234a;
+  --color-navy-700: #2b3263;
+  --color-wine: #700604;
+  --color-wine-900: #5c0503;
+  --color-lavender: #e8ebf7;
+  --color-paper: #fbfbfe;
+  --color-lilac: #ffe42b;
+  --color-lime: #d4f25a;
+  --color-lime-soft: #e6fa8f;
+  --color-lime-deep: #b8d63a;
+  --color-muted: #555a70;
+  --color-muted-dark: #b9bedd;
+  --color-rule-dark: #3a4073;
+  --color-rule-light: #c9cde6;
+  --color-rule-soft: #a3a9d1;
+  --color-blush: #f8e5e4;
+
+  --font-display: "Bodoni Moda", "Didot", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.2, 0, 0, 1);
+}
+
+:root {
+  --container: 1200px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-lavender);
+  color: var(--color-navy-800);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Bodoni Moda: optical size fixed so display type matches the Penpot rendering */
+.font-display {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 11;
+}
+
+::selection {
+  background: var(--color-lilac);
+  color: var(--color-navy-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-wine);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--color-lilac);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Hero / timeline artboards scale with their own width */
+.artboard {
+  container-type: inline-size;
+}
+
+@keyframes print-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+.print-marquee {
+  animation: print-marquee var(--marquee-duration, 60s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
