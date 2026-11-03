@@ -8,7 +8,10 @@ import TimelineStop from "./TimelineStop";
 // Desktop timeline: the ribbon waves across the page and the five outcomes alternate
 // above and below it. Artboard = 1440 × 520 (Penpot section, y 400 → 920).
 const BOX = [1440, 520];
-const PTS = [-40, 300, 220, 140, 420, 460, 720, 300, 1020, 140, 1220, 460, 1480, 280];
+// The outer segments run past the artboard so the ribbon reaches both screen edges on wide screens.
+const PTS = [
+  -560, 420, -360, 520, -170, 380, -40, 300, 220, 140, 420, 460, 720, 300, 1020, 140, 1220, 460, 1480, 280, 1610, 190, 1820, 120, 2000, 200,
+];
 const STOPS_X = [200, 460, 720, 980, 1240];
 const SAMPLES = sampleCubic(PTS);
 const u = (n) => `${(n / BOX[0]) * 100}cqw`;
