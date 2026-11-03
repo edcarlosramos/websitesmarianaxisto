@@ -44,7 +44,7 @@ const Messages = () => (
     <div className="relative mt-8 md:mt-10 lg:mt-[60px]">
       <Wall columns={printColumns.desktop} offsets={[60, -110, -20]} durations={[70, 82, 76]} gap={32} className="hidden h-[820px] lg:block" />
       <Wall columns={printColumns.tablet} offsets={[50, -120]} durations={[72, 84]} gap={24} className={`${styles.container} hidden h-[920px] md:block lg:hidden`} />
-      <Wall columns={printColumns.mobile} offsets={[40]} durations={[56]} gap={20} className={`${styles.container} h-[1060px] md:hidden`} />
+      <Wall columns={printColumns.mobile} offsets={[40]} durations={[80]} gap={20} className={`${styles.container} h-[1060px] md:hidden`} />
 
       <div className="relative z-10 -mt-14 flex justify-center px-6 md:px-0 lg:-mt-6">
         <Button label="Quero esse resultado" size="md" className="md:hidden" />

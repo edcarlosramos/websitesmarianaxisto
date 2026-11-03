@@ -55,7 +55,11 @@ const Ribbon = ({
   }, [measure]);
 
   // Overlays (menu) draw as soon as they mount; page ribbons draw when scrolled into view.
-  const reveal = (to) => (drawOnMount ? { animate: to } : { whileInView: to, viewport: { once: true, amount: 0.2 } });
+  // One trigger for the whole SVG: band and text used to observe themselves separately, and the text's taller
+  // box could enter the viewport first, so the phrase faded in before the band had drawn.
+  const hasEntered = useInView(svgRef, { once: true, amount: 0.2 });
+  const shown = drawOnMount || hasEntered || reduceMotion;
+  const reveal = (to, from) => ({ animate: shown ? to : from });
 
   useAnimationFrame((_, delta) => {
     if (reduceMotion || !isInView || !phraseLength.current || !textPathRef.current) return;
@@ -85,7 +89,7 @@ const Ribbon = ({
         stroke={bandColor}
         strokeWidth={band}
         initial={reduceMotion ? false : { pathLength: 0 }}
-        {...reveal({ pathLength: 1 })}
+        {...reveal({ pathLength: 1 }, { pathLength: 0 })}
         transition={{ duration: 1.6, ease: [0.65, 0, 0.35, 1], delay }}
       />
       <motion.text
@@ -97,7 +101,7 @@ const Ribbon = ({
         letterSpacing={fontSize * 0.04}
         dominantBaseline="central"
         initial={reduceMotion ? false : { opacity: 0 }}
-        {...reveal({ opacity: 1 })}
+        {...reveal({ opacity: 1 }, { opacity: 0 })}
         transition={{ duration: 0.8, delay: delay + 1.1 }}
       >
         <textPath ref={textPathRef} href={`#ribbon-${id}`} startOffset="0">

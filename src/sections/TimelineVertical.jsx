@@ -40,16 +40,18 @@ const TimelineVertical = () => {
                 <TimelineStop
                   number={index + 1}
                   isLast={isLast}
-                  delay={0.3 + index * 0.1}
+                  simple
+                  delay={0.15 + index * 0.12}
                   style={{ left: xAtY(samples, y), top: y, width: stop, height: stop }}
                 />
                 <motion.div
                   className="absolute right-0"
                   style={{ left: c.textX, top: y - 24 }}
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  // Fade only (no slide): opacity runs on the compositor, so it stays smooth while the ribbon draws in.
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, ease: [0.2, 0, 0, 1], delay: 0.2 + index * 0.08 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 + index * 0.12 }}
                 >
                   {isLast && (
                     <p className="absolute -top-6 font-sans text-[12px] font-semibold uppercase tracking-[0.17em] text-wine">Ao final</p>
