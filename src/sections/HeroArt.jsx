@@ -11,12 +11,13 @@ import { Ribbon, Stamp } from "../components";
 const ART = {
   desktop: {
     box: [1440, 1000],
-    className: "hidden lg:block absolute left-1/2 top-0 w-full max-w-[1440px] -translate-x-1/2",
+    // Overflow stays visible so the ribbon runs past the 1440px artboard on wide screens (the section clips it).
+    className: "hidden lg:block lg:overflow-visible absolute left-1/2 top-0 w-full max-w-[1440px] -translate-x-1/2",
     numeral: { x: 640, y: 150, size: 600 },
     label: { x: 1120, y: 150, size: 64 },
     photo: { x: 890, y: 290, w: 491 },
     stamp: { x: 1236, y: 610, w: 156 },
-    ribbon: { pts: [-60, 1050, 320, 1045, 580, 1000, 740, 800, 870, 630, 1000, 520, 1180, 430, 1300, 370, 1400, 320, 1700, 160], band: 60, font: 16 },
+    ribbon: { pts: [-60, 1050, 320, 1045, 580, 1000, 740, 800, 870, 630, 1000, 520, 1180, 430, 1300, 370, 1400, 320, 1700, 160, 2000, 0, 2300, -160, 2600, -320], band: 60, font: 16 },
   },
   tablet: {
     box: [768, 660],
