@@ -5,7 +5,7 @@ import { WHATSAPP_URL } from "../constants";
 const surfaces = {
   light: {
     root: "bg-green text-white hover:bg-green-hover active:bg-green-active focus-visible:outline-green",
-    chip: "bg-green-bright text-navy-900",
+    chip: "bg-green-bright text-white",
   },
   dark: {
     root: "bg-green text-white hover:bg-green-hover active:bg-green-active focus-visible:outline-lavender",
