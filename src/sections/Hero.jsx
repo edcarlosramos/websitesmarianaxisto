@@ -32,13 +32,13 @@ const Hero = () => (
         {...enter(0.35)}
         className="mt-5 max-w-[330px] font-sans text-[16px] leading-[1.55] text-navy-700 md:mt-7 md:max-w-[480px] md:text-[18px] lg:mt-8 lg:max-w-[450px] lg:text-[19px]"
       >
-        O método que já levou mais de 400 alunas do inglês travado à conversa real em 5 meses — falando desde o primeiro
+        O método que já levou mais de 400 alunas do inglês travado à conversa real em 20 semanas — falando desde o primeiro
         encontro.
       </motion.p>
 
       <motion.div {...enter(0.5)} className="mt-7 md:mt-10 lg:mt-[min(56px,3.9vw)]">
-        <Button label="Quero falar inglês em 5 meses" size="md" className="md:hidden" />
-        <Button label="Quero falar inglês em 5 meses" className="hidden md:inline-flex" />
+        <Button label="Quero falar inglês em 20 semanas" size="md" className="md:hidden" />
+        <Button label="Quero falar inglês em 20 semanas" className="hidden md:inline-flex" />
         <p className="mt-4 flex items-center gap-2.5 font-sans text-[13px] text-muted md:mt-5 md:text-[14px]">
           <span aria-hidden="true" className="size-2 rounded-full bg-wine" />
           Conversa direta com a equipe no WhatsApp

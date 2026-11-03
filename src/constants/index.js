@@ -160,7 +160,7 @@ export const faqs = [
   },
   {
     id: "faq-5",
-    question: "“5 meses não é pouco?”",
+    question: "“20 semanas não é pouco?”",
     answer:
       "O intensivo é direto ao ponto: conteúdo, prática e correção. Sem acúmulo de gramática. Em 20 semanas você apresenta em inglês na formatura — são mais de 400 alunas que já fizeram esse caminho.",
   },
@@ -174,7 +174,7 @@ export const faqs = [
     id: "faq-7",
     question: "Como funciona o acesso e por quanto tempo ele dura?",
     answer:
-      "O intensivo dura 5 meses e o seu acesso dura 1 ano. Depois do intensivo você continua praticando conversação ao vivo sem pagar de novo.",
+      "O intensivo dura 20 semanas e o seu acesso dura 1 ano. Depois do intensivo você continua praticando conversação ao vivo sem pagar de novo.",
   },
   {
     id: "faq-8",
@@ -186,6 +186,6 @@ export const faqs = [
     id: "faq-9",
     question: "Recebo certificado?",
     answer:
-      "Sim. No fim dos 5 meses você faz uma apresentação 100% em inglês na formatura e recebe o certificado de conclusão.",
+      "Sim. No fim das 20 semanas você faz uma apresentação 100% em inglês na formatura e recebe o certificado de conclusão.",
   },
 ];
