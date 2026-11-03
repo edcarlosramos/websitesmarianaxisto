@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef } from "react";
 import { motion, useAnimationFrame, useReducedMotion } from "motion/react";
 
 import { toPathD } from "../utils/geometry";
@@ -29,16 +29,21 @@ const Ribbon = ({
   const [vw, vh] = viewBox;
   const repeated = useMemo(() => phrase.repeat(Math.ceil((vw * 3) / (fontSize * 0.62 * phrase.length)) + 2), [phrase, vw, fontSize]);
 
-  useEffect(() => {
+  const measure = useCallback(() => {
     const text = textRef.current;
     if (!text) return;
-    const measure = () => {
-      const repeats = repeated.length / phrase.length;
-      phraseLength.current = text.getComputedTextLength() / repeats;
-    };
+    const repeats = repeated.length / phrase.length;
+    phraseLength.current = text.getComputedTextLength() / repeats;
+  }, [repeated, phrase]);
+
+  // Re-measure on resize too: a ribbon hidden at its breakpoint measures 0 and would never move once shown.
+  useEffect(() => {
     measure();
     document.fonts?.ready.then(measure);
-  }, [repeated, phrase]);
+    const observer = new ResizeObserver(measure);
+    if (textRef.current) observer.observe(textRef.current.ownerSVGElement);
+    return () => observer.disconnect();
+  }, [measure]);
 
   // Overlays (menu) draw as soon as they mount; page ribbons draw when scrolled into view.
   const reveal = (to) => (drawOnMount ? { animate: to } : { whileInView: to, viewport: { once: true, amount: 0.2 } });

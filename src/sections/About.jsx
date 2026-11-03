@@ -13,7 +13,7 @@ const Portrait = () => (
       loading="lazy"
       width="640"
       height="229"
-      className="absolute -left-12 -top-20 w-[150px] md:-left-[300px] md:top-6 md:w-[240px] lg:-left-[100px] lg:-top-10 lg:w-[300px]"
+      className="absolute -left-8 top-4 z-10 w-[150px] md:-left-[300px] md:top-6 md:w-[240px] lg:-left-[100px] lg:-top-10 lg:w-[300px]"
       initial={{ rotate: -60, opacity: 0 }}
       whileInView={{ rotate: -38, opacity: 1 }}
       viewport={{ once: true }}

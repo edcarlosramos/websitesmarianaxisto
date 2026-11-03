@@ -4,8 +4,8 @@ import styles from "../style";
 
 const RIBBONS = [
   { className: "hidden lg:block", box: [1440, 380], pts: [-60, 300, 380, 320, 760, 280, 1000, 60, 1180, -110, 1300, -280, 1500, -400], band: 64, font: 17 },
-  { className: "hidden md:block lg:hidden", box: [768, 300], pts: [-40, 250, 230, 260, 461, 210, 614, 90, 730, 0, 806, -10, 860, -80], band: 56, font: 15 },
-  { className: "md:hidden", box: [390, 220], pts: [-40, 190, 117, 200, 234, 150, 312, 86, 370, 20, 410, 10, 460, -50], band: 44, font: 12 },
+  { className: "hidden md:block lg:hidden", box: [768, 300], pts: [-40, 250, 230, 260, 461, 210, 614, 90, 730, 0, 800, -40, 860, -80], band: 56, font: 15 },
+  { className: "md:hidden", box: [390, 220], pts: [-40, 190, 117, 200, 234, 150, 312, 86, 372, 37, 420, -10, 460, -50], band: 44, font: 12 },
 ];
 
 const FinalCta = () => (

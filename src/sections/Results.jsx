@@ -20,7 +20,7 @@ const Results = () => (
     <TimelineHorizontal />
     <TimelineVertical />
 
-    <div className={`${styles.container} mt-10 lg:hidden`}>
+    <div className={`${styles.container} mt-10 flex justify-center lg:hidden`}>
       <Button label="Quero esse resultado" size="md" className="md:hidden" />
       <Button label="Quero esse resultado" className="hidden md:inline-flex" />
     </div>
