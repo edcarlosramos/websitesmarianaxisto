@@ -1,7 +1,61 @@
+import { useState } from "react";
+
 import { key } from "../assets";
 import { comparison, pillars } from "../constants";
 import { Overline, Reveal } from "../components";
 import styles from "../style";
+
+const VIDEO_ID = "4wYytMX0O5Q";
+const VIDEO_TITLE = "O caminho exato para falar inglês em 20 semanas";
+
+// Shows the YouTube thumbnail first and only loads the player when the visitor presses play,
+// so the heavy embed doesn't slow down the page load.
+const MethodVideo = () => {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <Reveal className="mt-12 md:mt-16 lg:mt-[86px]">
+      <div className="relative aspect-video w-full overflow-hidden bg-navy-900">
+        {playing ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+            title={VIDEO_TITLE}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="absolute inset-0 size-full border-0"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label={`Assistir ao vídeo: ${VIDEO_TITLE}`}
+            className="group absolute inset-0 size-full cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-lilac"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="720"
+              className="size-full object-cover transition-transform duration-700 ease-(--ease-out-soft) group-hover:scale-[1.02]"
+            />
+            <span aria-hidden="true" className="absolute inset-0 bg-navy-900/15 transition-colors duration-300 group-hover:bg-navy-900/5" />
+            <span
+              aria-hidden="true"
+              className="absolute top-1/2 left-1/2 grid size-[72px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wine text-lavender shadow-lg transition-transform duration-300 group-hover:scale-110 md:size-[92px]"
+            >
+              <svg viewBox="0 0 24 24" className="ml-1 size-7 md:size-9">
+                <path d="M8 5.5v13l10.5-6.5z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+    </Reveal>
+  );
+};
 
 const Method = () => (
   <section id="metodo" aria-labelledby="method-title" className="relative overflow-hidden bg-lavender pt-20 pb-20 md:pt-28 md:pb-28 lg:pt-[140px] lg:pb-[60px]">
@@ -63,6 +117,8 @@ const Method = () => (
           <p className="mt-3 font-sans text-[16px] leading-[1.5] text-lavender md:text-[17px] lg:text-[18px]">{comparison.maker}</p>
         </div>
       </Reveal>
+
+      <MethodVideo />
     </div>
   </section>
 );
