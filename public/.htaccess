@@ -1,0 +1,12 @@
+# Hostinger (Apache/LiteSpeed): show the site's own 404 page for addresses that don't exist.
+ErrorDocument 404 /404.html
+
+# Long cache for the built files (their names change on every build); always revalidate the HTML.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|webp|png|jpg|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

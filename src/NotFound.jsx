@@ -1,7 +1,7 @@
 import StatusPage from "./components/StatusPage";
 import { WHATSAPP_URL } from "./constants";
 
-// Served by GitHub Pages (404.html) for any address that doesn't exist.
+// Served by Hostinger (404.html, via public/.htaccess) for any address that does not exist.
 const NotFound = () => (
   <StatusPage
     code="404"

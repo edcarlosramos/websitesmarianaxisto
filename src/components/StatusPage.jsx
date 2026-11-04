@@ -1,7 +1,7 @@
 import { logo } from "../assets";
 import styles from "../style";
 
-// Site home, with the GitHub Pages base path in production ("/websitesmarianaxisto/").
+// Site home (the domain root).
 const HOME_URL = import.meta.env.BASE_URL;
 
 const linkBase =
