@@ -23,9 +23,9 @@ const Hero = () => (
 
       <motion.h1
         {...enter(0.2)}
-        className="font-display mt-3 max-w-[346px] text-[54px] leading-none tracking-[-0.022em] text-navy-800 md:mt-4 md:max-w-[600px] md:text-[84px] lg:max-w-[min(600px,41.7vw)] lg:text-[clamp(64px,6.945vw,100px)] lg:leading-[0.98]"
+        className="font-display mt-3 max-w-[346px] text-[40px] leading-[1.05] tracking-[-0.022em] text-navy-800 md:mt-4 md:max-w-[600px] md:text-[60px] lg:max-w-[min(600px,41.7vw)] lg:text-[clamp(44px,4.45vw,64px)] lg:leading-[1.02]"
       >
-        Do inglês <em className="text-wine">travado</em> à conversa real.
+        Fale inglês em <em className="text-wine">20 semanas</em> e comece a acessar oportunidades no exterior.
       </motion.h1>
 
       <motion.p

@@ -12,6 +12,15 @@ import print05 from "./prints/print-05.webp";
 import print06 from "./prints/print-06.webp";
 import print07 from "./prints/print-07.webp";
 import print08 from "./prints/print-08.webp";
+import print09 from "./prints/print-09.webp";
+import print10 from "./prints/print-10.webp";
+import print11 from "./prints/print-11.webp";
+import print12 from "./prints/print-12.webp";
+import print14 from "./prints/print-14.webp";
+import print15 from "./prints/print-15.webp";
+import alunaCarolina from "./alunas/carolina.webp";
+import alunaThais from "./alunas/thais.webp";
+import alunaEduarda from "./alunas/eduarda.webp";
 
 export {
   logo,
@@ -28,4 +37,13 @@ export {
   print06,
   print07,
   print08,
+  print09,
+  print10,
+  print11,
+  print12,
+  print14,
+  print15,
+  alunaCarolina,
+  alunaThais,
+  alunaEduarda,
 };

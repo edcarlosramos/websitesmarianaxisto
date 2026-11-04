@@ -1,4 +1,8 @@
-import { print01, print02, print03, print04, print05, print06, print07, print08 } from "../assets";
+import {
+  print01, print02, print03, print04, print05, print06, print07, print08,
+  print09, print10, print11, print12, print14, print15,
+  alunaCarolina, alunaThais, alunaEduarda,
+} from "../assets";
 
 export const WHATSAPP_URL = "https://api.whatsapp.com/message/WBR6VBIYU6KCN1?autoload=1&app_absent=0";
 
@@ -17,10 +21,10 @@ export const socials = [
 ];
 
 export const ribbonPhrases = {
-  speech: "I CAN SPEAK  ✦  NICE TO MEET YOU  ✦  LET ME ANSWER  ✦  I'M READY  ✦  ",
+  speech: "I CAN SPEAK  ✦  MAKE IT HAPPEN  ✦  LET ME ANSWER  ✦  I'M READY  ✦  ",
   skills: "SPEAKING  ✦  LISTENING  ✦  PRONUNCIATION  ✦  CONFIDENCE  ✦  ",
-  next: "YOUR NEXT CHAPTER  ✦  I CAN SPEAK  ✦  LET ME ANSWER  ✦  ",
-  menu: "I CAN SPEAK  ✦  LET ME ANSWER  ✦  ",
+  next: "YOUR NEXT CHAPTER  ✦  I CAN SPEAK  ✦  MAKE IT HAPPEN  ✦  ",
+  menu: "I CAN SPEAK  ✦  MAKE IT HAPPEN  ✦  ",
 };
 
 export const painPoints = [
@@ -66,53 +70,64 @@ export const outcomes = [
 
 export const featuredTestimonial = {
   tag: "Primeira reunião",
-  content: "Liderei uma reunião em inglês no trabalho — e fui elogiada pelo meu chefe.",
+  name: "Carolina Monteiro",
+  photo: alunaCarolina,
+  content: "Liderei uma reunião em inglês no trabalho e fui elogiada pela minha chefe.",
 };
 
 export const testimonials = [
   {
     id: "visto",
     tag: "Visto aprovado",
+    name: "Thaís Santos",
+    photo: alunaThais,
     content:
       "Em menos de um mês eu já entendia séries com áudio e legenda em inglês. Entrei no programa Au Pair, tive o visto aprovado de primeira e hoje moro nos EUA.",
   },
   {
     id: "londres",
     tag: "Mestrado em Londres",
+    name: "Eduarda Gonçalves",
+    photo: alunaEduarda,
     content:
-      "Minha compreensão do inglês falado rápido melhorou muito. Fiz mestrado sanduíche em Londres e palestrei para um grupo de pesquisa americano.",
+      "Minha compreensão do inglês falado rápido melhorou muito. Fiz mestrado sanduíche em Londres.",
   },
 ];
 
 /* WhatsApp screenshots: width/height are the intrinsic image sizes */
 export const prints = {
-  p01: { id: "p01", src: print01, width: 700, height: 1075, alt: "Mensagens de aluna contando que já sente evolução e que entendeu com facilidade os diálogos da aula." },
-  p02: { id: "p02", src: print02, width: 700, height: 846, alt: "Mensagem de aluna elogiando a plataforma e as aulas, muito bem explicadas e estruturadas." },
-  p03: { id: "p03", src: print03, width: 700, height: 1175, alt: "Mensagem de aluna agradecendo: hoje se sente muito mais segura e confiante com o inglês." },
-  p04: { id: "p04", src: print04, width: 700, height: 1118, alt: "Mensagem de aluna agradecendo: hoje enxerga o inglês como algo leve e até gosta de estudar." },
-  p05: { id: "p05", src: print05, width: 439, height: 440, alt: "Mensagem de aluna: a comunidade ajudou a destravar a timidez e progredir no inglês." },
-  p06: { id: "p06", src: print06, width: 700, height: 663, alt: "Mensagem de aluna dizendo que se sente muito à vontade nas aulas e que o trabalho é incrível." },
-  p07: { id: "p07", src: print07, width: 700, height: 1515, alt: "Mensagens de aluno contando que fez uma entrevista inteira em inglês para vaga de trainee." },
-  p08: { id: "p08", src: print08, width: 700, height: 1121, alt: "Mensagem de aluna: depois do curso passou a entender até músicas e já indicou para todo mundo." },
+  p01: { id: "p01", src: print01, width: 700, height: 498, alt: "Mensagem de aluna: a maneira como a aula funciona é excelente, se sentiu muito confortável para falar e tirar dúvidas." },
+  p02: { id: "p02", src: print02, width: 700, height: 734, alt: "Mensagens de aluno contando que achou a aula muito divertida e proveitosa e está ansioso pelas próximas." },
+  p03: { id: "p03", src: print03, width: 700, height: 1070, alt: "Mensagem de Joyce, da Turma 15: a forma de ensinar facilita aprender inglês e hoje ela não se considera mais iniciante." },
+  p04: { id: "p04", src: print04, width: 700, height: 861, alt: "Mensagem de Mariana, da Turma 17: a maior conquista foi ler um livro inteiro em inglês usando pouquíssimas traduções." },
+  p05: { id: "p05", src: print05, width: 700, height: 695, alt: "Mensagem de Willian, da Turma 22: entrou nervoso, ganhou confiança logo no início e sente que vai aprender inglês." },
+  p06: { id: "p06", src: print06, width: 700, height: 1517, alt: "Mensagens de Eduarda Gonçalves: melhorou a compreensão do inglês falado rápido, a fluidez e a confiança, e já indicou o curso para amigas." },
+  p07: { id: "p07", src: print07, width: 700, height: 1020, alt: "Mensagem de Renata, da Turma 22: aulas curtas, com conteúdo completo, fácil de entender e estudo com direcionamento." },
+  p08: { id: "p08", src: print08, width: 700, height: 957, alt: "Mensagem de Camila Andrade: as aulas a deixaram mais atenta ao inglês no dia a dia e ela já percebe pequenas evoluções." },
+  p09: { id: "p09", src: print09, width: 700, height: 1312, alt: "Mensagem de Gabrielly, do Intensivo: depois de 5 anos de cursinho, em 6 meses na comunidade destravou o inglês num ambiente sem julgamentos." },
+  p10: { id: "p10", src: print10, width: 700, height: 558, alt: "Comentário de Dayane Gonçalves no LinkedIn: as aulas focam em conversação e dinâmicas em grupo, fugindo da decoreba." },
+  p11: { id: "p11", src: print11, width: 700, height: 995, alt: "Mensagem de aluno: em dois meses passou a entender uma conversa inteira em inglês como se fosse em português." },
+  p12: { id: "p12", src: print12, width: 700, height: 1233, alt: "Mensagens de Eduarda, da Turma 19, em inglês: está se sentindo mais confiante a cada semana e faria a aula todos os dias." },
+  p14: { id: "p14", src: print14, width: 700, height: 452, alt: "Mensagem de Sananda: fez a entrevista com a agência e passou com inglês intermediário." },
+  p15: { id: "p15", src: print15, width: 700, height: 639, alt: "Mensagem de Sayonara, da Turma 16: ouviu suas tarefas orais antigas e notou uma grande diferença na pronúncia." },
 };
 
 export const printColumns = {
-  desktop: [["p07", "p02", "p06"], ["p03", "p05", "p01"], ["p08", "p04", "p06", "p02"]],
-  tablet: [["p07", "p02", "p08", "p05"], ["p03", "p04", "p06", "p01"]],
-  // Shorter list on phones: the looping column is one tall layer kept in GPU memory.
-  mobile: [["p07", "p03", "p08", "p04", "p05"]],
+  desktop: [["p06", "p02", "p08", "p14", "p01"], ["p09", "p04", "p11", "p05", "p15"], ["p03", "p10", "p12", "p07"]],
+  tablet: [["p06", "p02", "p08", "p14", "p01", "p04", "p11"], ["p09", "p10", "p12", "p07", "p15", "p03", "p05"]],
+  mobile: [["p03", "p08", "p14", "p04", "p05", "p01", "p09", "p02", "p06", "p10", "p11", "p12", "p07", "p15"]],
 };
 
 export const includes = [
   {
     id: "01",
-    title: "Encontros ao vivo + curso gravado",
-    content: "8 encontros ao vivo por mês, organizados por nível e gravados, mais o curso completo na plataforma.",
+    title: "Conversação 2x na semana",
+    content: "8 encontros ao vivo por mês, em grupo e separados por nível, para praticar a fala e a pronúncia.",
   },
   {
     id: "02",
-    title: "Plano de aplicação individual",
-    content: "Você conta como é a sua rotina e recebe um plano de estudo montado para ela.",
+    title: "Curso gravado com tarefas e correção individual",
+    content: "Plataforma completa onde você estuda a teoria e se prepara para aproveitar os encontros ao vivo e acelerar os seus resultados.",
   },
   {
     id: "03",

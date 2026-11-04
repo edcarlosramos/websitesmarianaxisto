@@ -12,7 +12,12 @@ const Tag = ({ children, filled = false }) => (
   </span>
 );
 
-const Attribution = () => <p className="font-sans text-[14px] text-muted-dark">Aluna da Comunidade Maker</p>;
+const Attribution = ({ name, photo }) => (
+  <p className="flex items-center gap-3 font-sans text-[14px] text-muted-dark">
+    <img src={photo} alt="" width={40} height={40} loading="lazy" decoding="async" className="size-10 shrink-0 rounded-full object-cover ring-1 ring-lilac/60" />
+    <span>{name}</span>
+  </p>
+);
 
 const Testimonials = () => (
   <section aria-labelledby="testimonials-title" className="on-dark bg-navy-900 pt-20 pb-20 md:pt-28 md:pb-24 lg:pt-[140px] lg:pb-[90px]">
@@ -40,7 +45,7 @@ const Testimonials = () => (
           </blockquote>
           <figcaption className="mt-7 flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-5">
             <Tag filled>{featuredTestimonial.tag}</Tag>
-            <Attribution />
+            <Attribution name={featuredTestimonial.name} photo={featuredTestimonial.photo} />
           </figcaption>
         </Reveal>
 
@@ -55,7 +60,7 @@ const Testimonials = () => (
               <Tag>{item.tag}</Tag>
               <blockquote className="font-inter mt-6 text-[18px] leading-[1.45] text-lavender md:text-[20px]">“{item.content}”</blockquote>
               <figcaption className="mt-5">
-                <Attribution />
+                <Attribution name={item.name} photo={item.photo} />
               </figcaption>
             </Reveal>
           ))}
