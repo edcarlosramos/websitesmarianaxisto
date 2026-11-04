@@ -1,7 +1,7 @@
 import {
   print01, print02, print03, print04, print05, print06, print07, print08,
   print09, print10, print11, print12, print14, print15,
-  alunaCarolina, alunaThais, alunaEduarda,
+  alunaCarolina, alunaThais, alunaEduarda, alunaManuela, alunaMariaEduarda, alunaMonique,
 } from "../assets";
 
 export const WHATSAPP_URL = "https://api.whatsapp.com/message/WBR6VBIYU6KCN1?autoload=1&app_absent=0";
@@ -91,6 +91,30 @@ export const testimonials = [
     photo: alunaEduarda,
     content:
       "Minha compreensão do inglês falado rápido melhorou muito. Fiz mestrado sanduíche em Londres.",
+  },
+  {
+    id: "europa",
+    tag: "Intercâmbios na Europa",
+    name: "Manuela Carvalho",
+    photo: alunaManuela,
+    content:
+      "Eu evitava falar inglês e tinha vergonha. Hoje viajo pro exterior todo ano e consigo participar de eventos de Publicidade, minha área de formação, em inglês e com pessoas de todo o mundo.",
+  },
+  {
+    id: "morar-fora",
+    tag: "O sonho de morar fora",
+    name: "Maria Eduarda Silva",
+    photo: alunaMariaEduarda,
+    content:
+      "Eu já morava em Londres há alguns anos, mas não conseguia falar inglês, mesmo fazendo aulas particulares. Depois da Comunidade Maker, meus chefes passaram a me elogiar pelo inglês e ver diferença em apenas 4 meses. Hoje falo inglês sem medo.",
+  },
+  {
+    id: "realizacao",
+    tag: "Realização",
+    name: "Monique Rodrigues",
+    photo: alunaMonique,
+    content:
+      "Eu já estudava inglês por mais de 2h todos os dias e nunca saía do B1, me sentindo frustrada. Na Comunidade Maker, eu finalmente cheguei ao C1, e me surpreendi: passei a estudar menos, sentir menos pressão com o inglês e até gostar do idioma, e aí percebi uma evolução de verdade.",
   },
 ];
 

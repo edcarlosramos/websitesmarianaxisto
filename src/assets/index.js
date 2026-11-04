@@ -21,6 +21,9 @@ import print15 from "./prints/print-15.webp";
 import alunaCarolina from "./alunas/carolina.webp";
 import alunaThais from "./alunas/thais.webp";
 import alunaEduarda from "./alunas/eduarda.webp";
+import alunaManuela from "./alunas/manuela.webp";
+import alunaMariaEduarda from "./alunas/maria-eduarda.webp";
+import alunaMonique from "./alunas/monique.webp";
 
 export {
   logo,
@@ -46,4 +49,7 @@ export {
   alunaCarolina,
   alunaThais,
   alunaEduarda,
+  alunaManuela,
+  alunaMariaEduarda,
+  alunaMonique,
 };
