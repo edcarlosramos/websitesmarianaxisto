@@ -72,10 +72,12 @@ const Ribbon = ({
     textPathRef.current.setAttribute("startOffset", -phraseLength.current + offset.current);
   });
 
+  // overflow-anchor: none — the phrase moving along the path changes the text's box every frame; when the browser
+  // picked it as its scroll anchor, it nudged the page to follow it and the page jittered while at rest.
   return (
     <svg
       ref={svgRef}
-      className={`pointer-events-none absolute left-0 top-0 h-auto w-full overflow-visible ${className}`}
+      className={`pointer-events-none absolute left-0 top-0 h-auto w-full overflow-visible [overflow-anchor:none] ${className}`}
       viewBox={`0 0 ${vw} ${vh}`}
       aria-hidden="true"
       focusable="false"
