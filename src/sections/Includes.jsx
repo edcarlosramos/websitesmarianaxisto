@@ -14,7 +14,7 @@ const Includes = () => (
           Ao vivo, gravado e com acompanhamento de perto — de segunda a sexta.
         </p>
         <div className="mt-[56px] hidden lg:block">
-          <Button label="Garantir minha vaga" />
+          <Button location="includes" label="Garantir minha vaga" />
         </div>
       </Reveal>
 
@@ -48,8 +48,8 @@ const Includes = () => (
       </ol>
 
       <div className="mt-10 lg:hidden">
-        <Button label="Garantir minha vaga" size="md" className="md:hidden" />
-        <Button label="Garantir minha vaga" className="hidden md:inline-flex" />
+        <Button location="includes" label="Garantir minha vaga" size="md" className="md:hidden" />
+        <Button location="includes" label="Garantir minha vaga" className="hidden md:inline-flex" />
       </div>
     </div>
   </section>

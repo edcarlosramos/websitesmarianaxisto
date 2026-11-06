@@ -37,8 +37,8 @@ const Hero = () => (
       </motion.p>
 
       <motion.div {...enter(0.5)} className="mt-7 md:mt-10 lg:mt-[min(56px,3.9vw)]">
-        <Button label="Quero falar inglês em 20 semanas" size="md" className="md:hidden" />
-        <Button label="Quero falar inglês em 20 semanas" className="hidden md:inline-flex" />
+        <Button location="hero" label="Quero falar inglês em 20 semanas" size="md" className="md:hidden" />
+        <Button location="hero" label="Quero falar inglês em 20 semanas" className="hidden md:inline-flex" />
         <p className="mt-4 flex items-center gap-2.5 font-sans text-[13px] text-muted md:mt-5 md:text-[14px]">
           <span aria-hidden="true" className="size-2 rounded-full bg-green-500" />
           Converse direto com a equipe no WhatsApp

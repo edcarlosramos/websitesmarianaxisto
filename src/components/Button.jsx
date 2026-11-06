@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 
+import { track } from "../analytics";
 import { WHATSAPP_URL } from "../constants";
 
 const surfaces = {
@@ -19,7 +20,8 @@ const sizes = {
 };
 
 // Every CTA on the page leads to the team's WhatsApp, as on marianaxisto.com.br.
-const Button = ({ label, surface = "light", size = "lg", href = WHATSAPP_URL, className = "" }) => {
+// `location` names the section the button sits in, so Analytics can tell the CTAs apart.
+const Button = ({ label, location, surface = "light", size = "lg", href = WHATSAPP_URL, className = "" }) => {
   const s = surfaces[surface];
   const z = sizes[size];
   // Responsive variants pass "hidden md:inline-flex"; only default to inline-flex otherwise.
@@ -30,6 +32,7 @@ const Button = ({ label, surface = "light", size = "lg", href = WHATSAPP_URL, cl
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track("cta_click", { cta_location: location, cta_label: label })}
       initial="rest"
       whileHover="hover"
       whileTap="tap"

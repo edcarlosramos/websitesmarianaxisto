@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { track } from "../analytics";
 import { key } from "../assets";
 import { comparison, pillars } from "../constants";
 import { Overline, Reveal } from "../components";
@@ -28,7 +29,10 @@ const MethodVideo = () => {
         ) : (
           <button
             type="button"
-            onClick={() => setPlaying(true)}
+            onClick={() => {
+              track("video_play", { video_location: "method", video_title: VIDEO_TITLE });
+              setPlaying(true);
+            }}
             aria-label={`Assistir ao vídeo: ${VIDEO_TITLE}`}
             className="group absolute inset-0 size-full cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-lilac"
           >

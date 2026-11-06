@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { track } from "../analytics";
 import { faqs } from "../constants";
 import { Button, FaqItem, Overline, Reveal } from "../components";
 import styles from "../style";
@@ -9,7 +10,7 @@ const Contact = ({ className }) => (
     <p className="max-w-[360px] font-sans text-[15px] leading-[1.6] text-navy-700 md:text-[17px] lg:text-[18px]">
       Ficou alguma pergunta? Fale direto com a equipe no WhatsApp.
     </p>
-    <Button label="Entrar em contato" size="md" className="mt-6 lg:mt-8" />
+    <Button location="faq" label="Entrar em contato" size="md" className="mt-6 lg:mt-8" />
   </div>
 );
 
@@ -29,12 +30,21 @@ const Faq = () => {
 
         <div className="mt-10 md:mt-12 lg:mt-[10px]">
           <div className="border-b border-navy-800">
-            {faqs.map((faq) => (
+            {faqs.map((faq, index) => (
               <FaqItem
                 key={faq.id}
                 {...faq}
                 isOpen={openId === faq.id}
-                onToggle={() => setOpenId((current) => (current === faq.id ? null : faq.id))}
+                onToggle={() => {
+                  // Only openings count: closing a question says nothing about interest.
+                  if (openId !== faq.id) {
+                    track("faq_open", {
+                      faq_question: faq.question.replace(/[“”"]/g, ""),
+                      faq_position: index + 1,
+                    });
+                  }
+                  setOpenId((current) => (current === faq.id ? null : faq.id));
+                }}
               />
             ))}
           </div>

@@ -122,7 +122,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </nav>
 
             <div className="mt-10">
-              <Button label="Garantir minha vaga" surface="dark" size="md" />
+              <Button location="mobile_menu" label="Garantir minha vaga" surface="dark" size="md" />
               <p className="mt-5 font-sans text-[13px] text-muted-dark">Conversa direta com a equipe no WhatsApp</p>
             </div>
 

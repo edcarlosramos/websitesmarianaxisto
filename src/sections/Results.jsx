@@ -13,7 +13,7 @@ const Results = () => (
         </h2>
       </Reveal>
       <Reveal delay={0.15} className="hidden lg:mt-[52px] lg:block">
-        <Button label="Quero esse resultado" />
+        <Button location="results" label="Quero esse resultado" />
       </Reveal>
     </div>
 
@@ -21,8 +21,8 @@ const Results = () => (
     <TimelineVertical />
 
     <div className={`${styles.container} mt-10 flex justify-center lg:hidden`}>
-      <Button label="Quero esse resultado" size="md" className="md:hidden" />
-      <Button label="Quero esse resultado" className="hidden md:inline-flex" />
+      <Button location="results" label="Quero esse resultado" size="md" className="md:hidden" />
+      <Button location="results" label="Quero esse resultado" className="hidden md:inline-flex" />
     </div>
   </section>
 );

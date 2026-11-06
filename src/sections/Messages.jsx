@@ -52,8 +52,8 @@ const Messages = () => (
       <Wall columns={printColumns.mobile} offsets={[40]} speeds={[34]} gap={20} colWidth={324} className={`${styles.container} h-[1060px] md:hidden`} />
 
       <div className="relative z-10 -mt-14 flex justify-center px-6 md:px-0 lg:-mt-6">
-        <Button label="Quero esse resultado" size="md" className="md:hidden" />
-        <Button label="Quero esse resultado" className="hidden md:inline-flex" />
+        <Button location="messages" label="Quero esse resultado" size="md" className="md:hidden" />
+        <Button location="messages" label="Quero esse resultado" className="hidden md:inline-flex" />
       </div>
     </div>
   </section>

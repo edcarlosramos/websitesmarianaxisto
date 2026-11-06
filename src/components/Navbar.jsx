@@ -66,7 +66,7 @@ const Navbar = () => {
           </nav>
 
           <div className="flex items-center gap-10 lg:gap-0">
-            <Button label="Garantir minha vaga" size="md" className="hidden md:inline-flex" />
+            <Button location="navbar" label="Garantir minha vaga" size="md" className="hidden md:inline-flex" />
             <MenuButton isOpen={isOpen} onClick={() => setIsOpen(true)} className="lg:hidden" />
           </div>
         </div>

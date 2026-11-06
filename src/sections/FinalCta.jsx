@@ -21,8 +21,8 @@ const FinalCta = () => (
         </h2>
       </Reveal>
       <Reveal delay={0.15} className="mt-10 lg:mt-14">
-        <Button label="Garantir minha vaga" surface="dark" size="md" className="md:hidden" />
-        <Button label="Falar com a equipe e garantir minha vaga" surface="dark" className="hidden md:inline-flex" />
+        <Button location="final_cta" label="Garantir minha vaga" surface="dark" size="md" className="md:hidden" />
+        <Button location="final_cta" label="Falar com a equipe e garantir minha vaga" surface="dark" className="hidden md:inline-flex" />
         <p className="mt-6 font-sans text-[14px] text-muted-dark">Garantia de 7 dias · Conversa direta no WhatsApp</p>
       </Reveal>
     </div>
