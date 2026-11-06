@@ -4,18 +4,20 @@ import styles from "../style";
 
 // Loop time comes from each column's height, so the scroll speed (px/s) stays the same
 // however many prints a column holds. colWidth matches the column's rendered width.
-const loopDuration = (items, speed, gap, colWidth) =>
-  items.reduce((total, key) => total + (prints[key].height / prints[key].width) * colWidth + gap, 0) / speed;
+const loopDuration = (items, speed, gap, colWidth, source = prints) =>
+  items.reduce((total, key) => total + (source[key].height / source[key].width) * colWidth + gap, 0) / speed;
 
-export const Wall = ({ columns, offsets, speeds, gap, colWidth, className }) => (
+// `source` maps the keys in `columns` to prints (the Comunidade Maker ones by default).
+export const Wall = ({ columns, offsets, speeds, gap, colWidth, className, source = prints }) => (
   <div className={`relative overflow-hidden ${className}`}>
     <div className="mx-auto flex justify-center" style={{ gap }}>
       {columns.map((items, index) => (
         <PrintColumn
           key={index}
           items={items}
+          source={source}
           offset={offsets[index]}
-          duration={loopDuration(items, speeds[index], gap, colWidth)}
+          duration={loopDuration(items, speeds[index], gap, colWidth, source)}
           reverse={index % 2 === 1}
           gap={gap}
           className="w-full max-w-[324px] md:w-[324px] lg:w-[328px]"

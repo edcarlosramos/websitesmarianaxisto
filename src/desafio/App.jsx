@@ -24,7 +24,7 @@ const App = () => {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative w-full overflow-x-clip">
-        <Navbar links={navLinks} cta={{ label: cta.short, href: cta.href, note: cta.note }} />
+        <Navbar theme="dark" links={navLinks} cta={{ label: cta.short, href: cta.href, note: cta.note, pulse: cta.pulse }} />
         <main>
           <Hero />
           <Opening />

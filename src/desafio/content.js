@@ -1,8 +1,19 @@
 // Copy for the "Desafio Fale Inglês em 14 Dias" sales page (/desafio14d/).
-import { WHATSAPP_URL } from "../constants";
+import depoimento1 from "../assets/desafio/depoimento-1.webp";
+import depoimento2 from "../assets/desafio/depoimento-2.webp";
+import depoimento3 from "../assets/desafio/depoimento-3.webp";
+import mural01 from "../assets/desafio/mural-01.webp";
+import mural02 from "../assets/desafio/mural-02.webp";
+import mural03 from "../assets/desafio/mural-03.webp";
+import mural04 from "../assets/desafio/mural-04.webp";
+import mural05 from "../assets/desafio/mural-05.webp";
+import mural06 from "../assets/desafio/mural-06.webp";
 
-// TODO: replace with the checkout link (Hotmart, Kiwify…). Until then the buttons open the team's WhatsApp.
-export const CHECKOUT_URL = WHATSAPP_URL;
+// Hubla checkout for the challenge: every button on this page leads here.
+export const CHECKOUT_URL = "https://pay.hub.la/85MBkSqzf35OCQwZLNa0";
+
+// End of sign-ups (sábado, 14/11, 23h59 in Brasília). Drives the hero countdown, which hides itself afterwards.
+export const SIGNUP_DEADLINE = "2026-11-14T23:59:59-03:00";
 
 export const navLinks = [
   { id: "como-funciona", title: "Como funciona" },
@@ -17,6 +28,7 @@ export const cta = {
   short: "Garantir minha vaga",
   href: CHECKOUT_URL,
   note: "Acesso imediato · 12x de R$ 9,86 · Apenas 20 vagas",
+  pulse: true,
 };
 
 export const ribbonPhrase = "14 DAYS  ✦  I CAN SPEAK  ✦  PRACTICE EVERY DAY  ✦  I'M READY  ✦  ";
@@ -75,11 +87,33 @@ export const benefits = [
   { title: "Cabe na sua rotina", content: "20 minutos por dia, no horário que você puder." },
 ];
 
-// The three fixed testimonials. `src` stays empty until the screenshots arrive; a placeholder card shows meanwhile.
+// The three fixed testimonials (screenshots sent by students of the 2025 Desafio).
+// A placeholder card shows instead whenever `src` is empty.
 export const featuredProofs = [
-  { id: "depoimento-1", tag: "Perdeu a vergonha de falar", src: "", width: 700, height: 900, alt: "" },
-  { id: "depoimento-2", tag: "Evolução da pronúncia", src: "", width: 700, height: 900, alt: "" },
-  { id: "depoimento-3", tag: "Resultado em 14 dias", src: "", width: 700, height: 900, alt: "" },
+  {
+    id: "depoimento-1",
+    tag: "Perdeu a vergonha de falar",
+    src: depoimento1,
+    width: 594,
+    height: 869,
+    alt: "E-mail de Mari Milhas: saiu da zona de conforto, passou por cima da vergonha de falar inglês e notou evolução na pronúncia e na escrita.",
+  },
+  {
+    id: "depoimento-2",
+    tag: "Evolução da pronúncia",
+    src: depoimento2,
+    width: 612,
+    height: 869,
+    alt: "Mensagem de Luciana, do Desafio: melhorou bastante a pronúncia, está entendendo mais e perdendo o medo de conversar em inglês.",
+  },
+  {
+    id: "depoimento-3",
+    tag: "Resultado em 14 dias",
+    src: depoimento3,
+    width: 524,
+    height: 869,
+    alt: "Mensagem de Beatriz, do Desafio: percebeu que consegue mais do que pensava e, na primeira aula de conversação, entendeu alunos mais avançados.",
+  },
 ];
 
 export const pillars = [
@@ -153,3 +187,27 @@ export const faqs = [
   },
   { id: "d14-faq-9", question: "Como posso pagar?", answer: "Pix ou cartão, em até 12x de R$ 9,86." },
 ];
+
+// Screenshots for the scrolling wall ("Mais depoimentos de quem já participou").
+export const wallPrints = {
+  m01: { id: "m01", src: mural01, width: 1179, height: 765, alt: "Resposta de aluna do Desafio: gravar áudio em inglês a fez encarar o medo de errar, e ficava feliz quando a Mari elogiava." },
+  m02: { id: "m02", src: mural02, width: 893, height: 844, alt: "Mensagem de Thalita, do Desafio, em inglês: os dias do desafio ajudam no inglês e na disciplina, e praticar a fala todo dia é essencial para o progresso." },
+  m03: { id: "m03", src: mural03, width: 880, height: 630, alt: "Mensagem de Tamires, do Desafio, em inglês: está começando a ter menos medo de falar inglês." },
+  m04: { id: "m04", src: mural04, width: 1009, height: 869, alt: "Resposta de aluna do Desafio: gostou das diferentes formas de conteúdo e descobriu que sua pronúncia é boa, algo que sempre foi uma insegurança." },
+  m05: { id: "m05", src: mural05, width: 1020, height: 869, alt: "Resposta de aluna do Desafio: largou o tradutor, passou a escrever só com dicionário e percebeu que a escrita melhorou muito." },
+  m06: { id: "m06", src: mural06, width: 1179, height: 793, alt: "Depoimento em inglês: em 14 dias percebeu que, com dedicação e orientação, pode chegar longe; a maior melhora foi na fala." },
+};
+
+// Every column holds all six prints (in a different order) so each loop is taller than the wall.
+export const wallColumns = {
+  desktop: [
+    ["m01", "m04", "m02", "m05", "m03", "m06"],
+    ["m05", "m02", "m06", "m03", "m01", "m04"],
+    ["m03", "m06", "m04", "m01", "m05", "m02"],
+  ],
+  tablet: [
+    ["m01", "m04", "m02", "m05", "m03", "m06"],
+    ["m05", "m02", "m06", "m03", "m01", "m04"],
+  ],
+  mobile: [["m01", "m02", "m04", "m03", "m05", "m06"]],
+};

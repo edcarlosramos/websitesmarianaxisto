@@ -4,9 +4,10 @@ import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } fro
 const TILT = 14; // max tilt in degrees
 const spring = { stiffness: 260, damping: 20, mass: 0.6 };
 
-// "+400 alunas" round stamp. Size is driven by the parent through `className` (width).
+// Round gold stamp ("+400 alunas" by default). Size is driven by the parent through `className` (width).
 // On hover it behaves like a 3D card: it tilts toward the pointer and sinks slightly.
-const Stamp = ({ className = "", style }) => {
+// `sheen` adds a band of light that sweeps across the face every few seconds.
+const Stamp = ({ className = "", style, value = "+400", caption = "alunas", valueClass = "text-[33cqw]", sheen = false }) => {
   const reduceMotion = useReducedMotion();
   const ref = useRef(null);
   // Pointer position inside the stamp, -0.5 → 0.5 on each axis.
@@ -25,6 +26,10 @@ const Stamp = ({ className = "", style }) => {
   // Soft highlight that follows the pointer across the gold face.
   const glare = useTransform([px, py], ([x, y]) => `radial-gradient(circle at ${50 + x * 90}% ${50 + y * 90}%, rgb(255 255 255 / 0.45), transparent 55%)`);
   const glareOpacity = useSpring(pressed, spring);
+  // Depth of the text above the face. It is 0 at rest so the stamp has no 3D transform then:
+  // a 3D layer is rasterized once and scaled, which made the text blurry until the pointer touched it.
+  const depth = useSpring(useTransform(pressed, [0, 1], [0, 18]), spring);
+  const transformStyle = useTransform(depth, (d) => (d > 0.1 ? "preserve-3d" : "flat"));
 
   // Tracked on window: in the hero the text column sits above the art and would swallow the stamp's own pointer events.
   useEffect(() => {
@@ -57,13 +62,18 @@ const Stamp = ({ className = "", style }) => {
     >
       <motion.div
         className="artboard relative grid size-full place-items-center rounded-full bg-lilac text-navy-900"
-        style={{ rotateX, rotateY, scale, boxShadow: shadow, transformStyle: "preserve-3d" }}
+        style={{ rotateX, rotateY, scale, boxShadow: shadow, transformStyle }}
       >
         <span className="absolute inset-[5%] rounded-full border border-navy-900" aria-hidden="true" />
-        <p className="text-center leading-none" style={{ transform: "translateZ(18px)" }}>
-          <span className="font-display block text-[33cqw]">+400</span>
-          <span className="mt-[6cqw] block font-sans text-[7.6cqw] font-semibold uppercase tracking-[0.25em]">alunas</span>
-        </p>
+        <motion.p className="text-center leading-none" style={{ z: depth }}>
+          <span className={`font-display block ${valueClass}`}>{value}</span>
+          <span className="mt-[6cqw] block font-sans text-[7.6cqw] font-semibold uppercase tracking-[0.25em]">{caption}</span>
+        </motion.p>
+        {sheen && (
+          <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+            <span className="stamp-sheen absolute inset-y-[-20%] left-0 w-[45%] bg-linear-to-r from-transparent via-white/70 to-transparent" />
+          </span>
+        )}
         <motion.span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-full mix-blend-soft-light"

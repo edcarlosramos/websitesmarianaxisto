@@ -1,8 +1,7 @@
-import { printColumns } from "../../constants";
 import { Overline, PrintCard, Reveal } from "../../components";
 import { Wall } from "../../sections/Messages";
 import styles from "../../style";
-import { featuredProofs } from "../content";
+import { featuredProofs, wallColumns, wallPrints } from "../content";
 
 // Stands in for a testimonial screenshot that hasn't been added yet (empty `src` in content.js).
 const Placeholder = ({ index, width, height }) => (
@@ -53,9 +52,9 @@ const Proof = () => (
         </h3>
       </Reveal>
       <div className="relative mt-8 md:mt-10 lg:mt-[56px]">
-        <Wall columns={printColumns.desktop} offsets={[60, -110, -20]} speeds={[22, 18, 25]} gap={32} colWidth={328} className="hidden h-[820px] lg:block" />
-        <Wall columns={printColumns.tablet} offsets={[50, -120]} speeds={[28, 23]} gap={24} colWidth={324} className={`${styles.container} hidden h-[920px] md:block lg:hidden`} />
-        <Wall columns={printColumns.mobile} offsets={[40]} speeds={[34]} gap={20} colWidth={324} className={`${styles.container} h-[1060px] md:hidden`} />
+        <Wall source={wallPrints} columns={wallColumns.desktop} offsets={[60, -110, -20]} speeds={[22, 18, 25]} gap={32} colWidth={328} className="hidden h-[820px] lg:block" />
+        <Wall source={wallPrints} columns={wallColumns.tablet} offsets={[50, -120]} speeds={[28, 23]} gap={24} colWidth={324} className={`${styles.container} hidden h-[920px] md:block lg:hidden`} />
+        <Wall source={wallPrints} columns={wallColumns.mobile} offsets={[40]} speeds={[34]} gap={20} colWidth={324} className={`${styles.container} h-[1060px] md:hidden`} />
       </div>
     </div>
   </section>

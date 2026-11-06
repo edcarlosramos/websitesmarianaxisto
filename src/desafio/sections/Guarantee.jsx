@@ -7,10 +7,10 @@ const Guarantee = () => (
     <div className={`${styles.container} flex flex-col items-center gap-12 lg:grid lg:grid-cols-[460px_minmax(0,576px)] lg:items-center lg:justify-between lg:gap-0`}>
       <Seal
         className="w-[280px] md:w-[360px] lg:ml-[30px] lg:w-[460px]"
-        label="Garantia de"
-        value="evolução"
-        caption="14 áudios"
-        valueClass="text-[15cqw] leading-[1.1] italic"
+        label=""
+        value="Garantia"
+        caption=""
+        valueClass="text-[16cqw] leading-none italic"
       />
 
       <Reveal className="w-full">

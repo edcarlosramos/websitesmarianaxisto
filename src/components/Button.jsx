@@ -21,7 +21,8 @@ const sizes = {
 
 // Every CTA on the page leads to the team's WhatsApp, as on marianaxisto.com.br.
 // `location` names the section the button sits in, so Analytics can tell the CTAs apart.
-const Button = ({ label, location, surface = "light", size = "lg", href = WHATSAPP_URL, className = "" }) => {
+// `pulse` adds a soft, repeating glow to draw the eye (used on the challenge sales page).
+const Button = ({ label, location, surface = "light", size = "lg", href = WHATSAPP_URL, pulse = false, className = "" }) => {
   const s = surfaces[surface];
   const z = sizes[size];
   // Responsive variants pass "hidden md:inline-flex"; only default to inline-flex otherwise.
@@ -37,7 +38,7 @@ const Button = ({ label, location, surface = "light", size = "lg", href = WHATSA
       whileHover="hover"
       whileTap="tap"
       animate="rest"
-      className={`group ${display} shrink-0 items-center rounded-full font-sans font-semibold leading-[1.2] whitespace-nowrap transition-colors duration-200 ease-(--ease-out-soft) focus-visible:outline-[3px] focus-visible:outline-offset-2 ${s.root} ${z.root} ${className}`}
+      className={`group ${display} shrink-0 items-center rounded-full font-sans font-semibold leading-[1.2] whitespace-nowrap transition-colors duration-200 ease-(--ease-out-soft) focus-visible:outline-[3px] focus-visible:outline-offset-2 ${s.root} ${z.root} ${pulse ? "cta-pulse" : ""} ${className}`}
       variants={{ tap: { scale: 0.98 } }}
     >
       <span>{label}</span>
