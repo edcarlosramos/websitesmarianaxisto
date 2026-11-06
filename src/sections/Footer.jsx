@@ -11,20 +11,22 @@ const Column = ({ title, children }) => (
   </div>
 );
 
-const Footer = () => (
+const DEFAULT_TAGLINE = "Intensivo de conversação em inglês para mulheres que já estudaram — e querem, enfim, falar.";
+
+const Footer = ({ links = navLinks, tagline = DEFAULT_TAGLINE }) => (
   <footer className="bg-lavender pt-16 pb-10 md:pt-[72px] lg:pt-24">
     <div className={styles.container}>
       <div className="lg:flex lg:justify-between">
         <div>
           <img src={logo} alt="Comunidade Maker" width="720" height="251" loading="lazy" className="h-[52px] w-auto md:h-[70px] lg:h-20" />
           <p className="mt-6 max-w-[320px] font-sans text-[15px] leading-[1.6] text-navy-700">
-            Intensivo de conversação em inglês para mulheres que já estudaram — e querem, enfim, falar.
+            {tagline}
           </p>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 lg:mt-1 lg:w-[720px] lg:grid-cols-[220px_300px_200px] lg:gap-0">
           <Column title="Navegação">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <li key={link.id}>
                 <a href={`#${link.id}`} className={linkClass}>
                   {link.title}

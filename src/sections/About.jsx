@@ -43,7 +43,7 @@ const PhotoRotator = () => {
   ));
 };
 
-const Portrait = () => (
+export const Portrait = () => (
   // On mobile the top margin reserves room above the arch so the floating key never overlaps the title or the photo.
   <div className="relative mx-auto mt-24 w-[300px] md:mx-0 md:mt-0 md:ml-auto md:w-[400px] lg:ml-0 lg:w-[500px]">
     <motion.img

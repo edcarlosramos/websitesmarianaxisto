@@ -8,7 +8,8 @@ import Button from "./Button";
 import MenuButton from "./MenuButton";
 import MobileMenu from "./MobileMenu";
 
-const Navbar = () => {
+// `links` are the in-page anchors; `cta` is the button on the right ({ label, href, note }).
+const Navbar = ({ links = navLinks, cta = { label: "Garantir minha vaga" } }) => {
   const [isOpen, setIsOpen] = useState(false);
   const close = useCallback(() => setIsOpen(false), []);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,7 +53,7 @@ const Navbar = () => {
 
           <nav aria-label="Principal" className="hidden lg:block">
             <ul className="flex items-center gap-9">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <li key={link.id}>
                   <a
                     href={`#${link.id}`}
@@ -66,13 +67,13 @@ const Navbar = () => {
           </nav>
 
           <div className="flex items-center gap-10 lg:gap-0">
-            <Button location="navbar" label="Garantir minha vaga" size="md" className="hidden md:inline-flex" />
+            <Button location="navbar" label={cta.label} href={cta.href} size="md" className="hidden md:inline-flex" />
             <MenuButton isOpen={isOpen} onClick={() => setIsOpen(true)} className="lg:hidden" />
           </div>
         </div>
       </motion.header>
 
-      <MobileMenu isOpen={isOpen} onClose={close} />
+      <MobileMenu isOpen={isOpen} onClose={close} links={links} cta={cta} />
     </>
   );
 };

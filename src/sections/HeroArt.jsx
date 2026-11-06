@@ -39,7 +39,7 @@ const ART = {
   },
 };
 
-const HeroArt = ({ variant }) => {
+const HeroArt = ({ variant, numeral = "20", label = "semanas", phrase = ribbonPhrases.speech }) => {
   const art = ART[variant];
   const [bw, bh] = art.box;
   const u = (n) => `${(n / bw) * 100}cqw`;
@@ -58,10 +58,10 @@ const HeroArt = ({ variant }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.2, 0, 0, 1], delay: 0.2 }}
       >
-        20
+        {numeral}
       </motion.span>
 
-      <Ribbon pts={art.ribbon.pts} viewBox={art.box} band={art.ribbon.band} fontSize={art.ribbon.font} phrase={ribbonPhrases.speech} delay={0.4} />
+      <Ribbon pts={art.ribbon.pts} viewBox={art.box} band={art.ribbon.band} fontSize={art.ribbon.font} phrase={phrase} delay={0.4} />
 
       <motion.span
         className="font-display absolute leading-none italic text-wine"
@@ -70,7 +70,7 @@ const HeroArt = ({ variant }) => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, ease: [0.2, 0, 0, 1], delay: 0.7 }}
       >
-        semanas
+        {label}
       </motion.span>
 
       <motion.img

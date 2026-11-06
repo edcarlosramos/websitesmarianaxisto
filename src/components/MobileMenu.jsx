@@ -12,7 +12,7 @@ import Ribbon from "./Ribbon";
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 // Full-screen menu on phones, right-side drawer over a dimmed page on tablets.
-const MobileMenu = ({ isOpen, onClose }) => {
+const MobileMenu = ({ isOpen, onClose, links = navLinks, cta = { label: "Garantir minha vaga" } }) => {
   const isTablet = useMediaQuery("(min-width: 768px)");
   const panelRef = useRef(null);
 
@@ -95,7 +95,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             <Overline tone="lilac" className="mt-12">Menu</Overline>
             <nav aria-label="Seções da página" className="mt-6">
               <ul>
-                {navLinks.map((link, index) => (
+                {links.map((link, index) => (
                   <motion.li
                     key={link.id}
                     className="border-t border-rule-dark last:border-b"
@@ -122,8 +122,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </nav>
 
             <div className="mt-10">
-              <Button location="mobile_menu" label="Garantir minha vaga" surface="dark" size="md" />
-              <p className="mt-5 font-sans text-[13px] text-muted-dark">Conversa direta com a equipe no WhatsApp</p>
+              <Button location="mobile_menu" label={cta.label} href={cta.href} surface="dark" size="md" />
+              <p className="mt-5 font-sans text-[13px] text-muted-dark">{cta.note ?? "Conversa direta com a equipe no WhatsApp"}</p>
             </div>
 
             <div className="mt-auto pb-[150px] md:pb-[180px]">

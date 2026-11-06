@@ -14,6 +14,8 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         notFound: fileURLToPath(new URL('./404.html', import.meta.url)),
+        // Sales page for the 14-day challenge, served at /desafio14d/.
+        desafio: fileURLToPath(new URL('./desafio14d/index.html', import.meta.url)),
       },
     },
   },

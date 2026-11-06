@@ -7,7 +7,7 @@ import styles from "../style";
 const loopDuration = (items, speed, gap, colWidth) =>
   items.reduce((total, key) => total + (prints[key].height / prints[key].width) * colWidth + gap, 0) / speed;
 
-const Wall = ({ columns, offsets, speeds, gap, colWidth, className }) => (
+export const Wall = ({ columns, offsets, speeds, gap, colWidth, className }) => (
   <div className={`relative overflow-hidden ${className}`}>
     <div className="mx-auto flex justify-center" style={{ gap }}>
       {columns.map((items, index) => (
