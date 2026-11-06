@@ -22,6 +22,7 @@
   --color-rule-light: #c9cde6;
   --color-rule-soft: #a3a9d1;
   --color-blush: #f8e5e4;
+  --color-ink: #07080f;
 
   --font-display: "Times New Roman", Times, "Liberation Serif", serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
@@ -46,6 +47,14 @@
 /* Filled gold surfaces get the blended tone instead of a flat color */
 .bg-lilac {
   background-image: var(--gradient-gold);
+}
+
+/* Gold-foil text (the brushed-gold blend clipped to the letters) */
+.text-gold {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 html {
@@ -117,6 +126,49 @@ p {
 
 .key-float {
   animation: key-float 5s ease-in-out infinite;
+}
+
+/* Soft pulse on call-to-action buttons: a green halo that spreads and fades, with a slight swell.
+   Uses `scale` (not `transform`) so it doesn't fight the hover/tap animation set inline by motion. */
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(34 211 107 / 0.45);
+    scale: 1;
+  }
+  50% {
+    scale: 1.03;
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgb(34 211 107 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(34 211 107 / 0);
+    scale: 1;
+  }
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.4s ease-out infinite;
+}
+
+.cta-pulse:hover,
+.cta-pulse:focus-visible {
+  animation-play-state: paused;
+}
+
+/* Light band sweeping across the gold stamp: a quick pass, then a pause before the next one. */
+@keyframes stamp-sheen {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  35%,
+  100% {
+    transform: translateX(340%) skewX(-20deg);
+  }
+}
+
+.stamp-sheen {
+  animation: stamp-sheen 3.2s ease-in-out infinite;
 }
 
 @keyframes print-marquee {

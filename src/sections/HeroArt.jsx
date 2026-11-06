@@ -39,7 +39,15 @@ const ART = {
   },
 };
 
-const HeroArt = ({ variant }) => {
+// `tone` switches the art for a dark background: gold-foil numeral and a gold ribbon with dark text.
+const TONES = {
+  light: { numeral: "text-wine", label: "text-wine", band: undefined, text: undefined },
+  dark: { numeral: "text-gold", label: "text-gold", band: "var(--color-lilac)", text: "var(--color-ink)" },
+};
+
+// `showNumeral={false}` hides the big number and its label, leaving photo, ribbon and stamp.
+const HeroArt = ({ variant, numeral = "20", label = "semanas", phrase = ribbonPhrases.speech, tone = "light", showNumeral = true, stamp }) => {
+  const colors = TONES[tone];
   const art = ART[variant];
   const [bw, bh] = art.box;
   const u = (n) => `${(n / bw) * 100}cqw`;
@@ -51,27 +59,31 @@ const HeroArt = ({ variant }) => {
 
   return (
     <div ref={ref} className={`artboard overflow-hidden ${art.className}`} style={{ aspectRatio: `${bw} / ${bh}` }} aria-hidden="true">
+      {showNumeral && (
       <motion.span
-        className="font-display absolute leading-none text-wine select-none"
+        className={`font-display absolute leading-none select-none ${colors.numeral}`}
         style={{ left: u(art.numeral.x), top: u(art.numeral.y), fontSize: u(art.numeral.size), y: numeralY }}
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.2, 0, 0, 1], delay: 0.2 }}
       >
-        20
+        {numeral}
       </motion.span>
+      )}
 
-      <Ribbon pts={art.ribbon.pts} viewBox={art.box} band={art.ribbon.band} fontSize={art.ribbon.font} phrase={ribbonPhrases.speech} delay={0.4} />
+      <Ribbon pts={art.ribbon.pts} viewBox={art.box} band={art.ribbon.band} fontSize={art.ribbon.font} phrase={phrase} bandColor={colors.band} textColor={colors.text} delay={0.4} />
 
+      {showNumeral && (
       <motion.span
-        className="font-display absolute leading-none italic text-wine"
+        className={`font-display absolute leading-none italic ${colors.label}`}
         style={{ left: u(art.label.x), top: u(art.label.y), fontSize: u(art.label.size) }}
         initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, ease: [0.2, 0, 0, 1], delay: 0.7 }}
       >
-        semanas
+        {label}
       </motion.span>
+      )}
 
       <motion.img
         src={marianaHero}
@@ -87,7 +99,7 @@ const HeroArt = ({ variant }) => {
         transition={{ duration: 1.1, ease: [0.2, 0, 0, 1], delay: 0.35 }}
       />
 
-      <Stamp style={{ left: u(art.stamp.x), top: u(art.stamp.y), width: u(art.stamp.w) }} />
+      <Stamp {...stamp} style={{ left: u(art.stamp.x), top: u(art.stamp.y), width: u(art.stamp.w) }} />
     </div>
   );
 };

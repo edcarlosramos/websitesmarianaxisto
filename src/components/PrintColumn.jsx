@@ -7,12 +7,13 @@ import PrintCard from "./PrintCard";
 // One vertical column of WhatsApp screenshots that scrolls endlessly: the list is rendered
 // twice and translated by -50% (CSS keyframes so hover/focus can pause it).
 // Each item carries its own bottom spacing so both copies have exactly the same height.
-const PrintColumn = ({ items, duration = 60, offset = 0, reverse = false, gap = 32, className = "" }) => {
+// `items` are keys into `source` (the site's prints by default).
+const PrintColumn = ({ items, source = prints, duration = 60, offset = 0, reverse = false, gap = 32, className = "" }) => {
   const reduceMotion = useReducedMotion();
   const ref = useRef(null);
   // The column is a very tall layer: stop animating it while the section is off screen.
   const isInView = useInView(ref, { margin: "100px" });
-  const list = items.map((key) => prints[key]);
+  const list = items.map((key) => source[key]);
   const copies = reduceMotion ? [0] : [0, 1];
 
   return (
