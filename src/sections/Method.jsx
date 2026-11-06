@@ -44,7 +44,7 @@ const MethodVideo = () => {
             <span aria-hidden="true" className="absolute inset-0 bg-navy-900/15 transition-colors duration-300 group-hover:bg-navy-900/5" />
             <span
               aria-hidden="true"
-              className="absolute top-1/2 left-1/2 grid size-[72px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wine text-lavender shadow-lg transition-transform duration-300 group-hover:scale-110 md:size-[92px]"
+              className="absolute top-1/2 left-1/2 grid size-[72px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/30 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 md:size-[92px]"
             >
               <svg viewBox="0 0 24 24" className="ml-1 size-7 md:size-9">
                 <path d="M8 5.5v13l10.5-6.5z" fill="currentColor" />
