@@ -21,7 +21,7 @@ const Stamp = ({ className = "", style, value = "+400", caption = "alunas", valu
   const shadow = useTransform(
     [rotateX, rotateY, scale],
     ([rx, ry, s]) =>
-      `${(-ry * 0.9).toFixed(1)}px ${(rx * 0.9 + 18 * s - 6).toFixed(1)}px ${(34 * s - 10).toFixed(1)}px rgb(18 21 46 / ${(0.28 - (1 - s) * 1.7).toFixed(2)})`,
+      `${(-ry * 0.9).toFixed(1)}px ${(rx * 0.9 + 18 * s - 6).toFixed(1)}px ${(34 * s - 10).toFixed(1)}px rgb(var(--shadow-rgb, 18 21 46) / ${(0.28 - (1 - s) * 1.7).toFixed(2)})`,
   );
   // Soft highlight that follows the pointer across the gold face.
   const glare = useTransform([px, py], ([x, y]) => `radial-gradient(circle at ${50 + x * 90}% ${50 + y * 90}%, rgb(255 255 255 / 0.45), transparent 55%)`);

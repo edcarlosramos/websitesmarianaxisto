@@ -35,7 +35,7 @@ const Countdown = ({ className = "" }) => {
       <p className="sr-only">Inscrições até sábado, 14/11, às 23h59 (horário de Brasília).</p>
       <ol aria-hidden="true" className="mt-3 flex gap-2 md:gap-3">
         {time.parts.map((part) => (
-          <li key={part.label} className="grid w-[62px] place-items-center rounded-[10px] border border-rule-dark bg-[#141623] py-2.5 md:w-[70px]">
+          <li key={part.label} className="grid w-[62px] place-items-center rounded-[10px] border border-rule-dark bg-navy-800 py-2.5 md:w-[70px]">
             <span className="font-display text-[30px] leading-none tabular-nums text-lavender md:text-[34px]">
               {String(part.value).padStart(2, "0")}
             </span>

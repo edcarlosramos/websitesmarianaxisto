@@ -34,7 +34,7 @@ const Hero = () => (
     />
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -left-[20%] -top-[10%] size-[600px] rounded-full bg-[radial-gradient(circle,rgb(112_6_4/0.35),transparent_65%)]"
+      className="pointer-events-none absolute -left-[20%] -top-[10%] size-[600px] rounded-full bg-[radial-gradient(circle,rgb(194_24_91/0.28),transparent_65%)]"
     />
 
     <HeroArt variant="desktop" {...art} />

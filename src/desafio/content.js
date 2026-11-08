@@ -185,7 +185,13 @@ export const faqs = [
     question: "Tem garantia?",
     answer: "Sim. Se você entregar os 14 áudios no prazo e não evoluir, devolvemos o seu investimento. O pedido pode ser feito até 29/11.",
   },
-  { id: "d14-faq-9", question: "Como posso pagar?", answer: "Pix ou cartão, em até 12x de R$ 9,86." },
+  { id: "d14-faq-9", question: "Como posso pagar?", answer: "Pix ou cartão, em até 12x de R$ 9,86. Quem mora fora do Brasil pode pagar na sua moeda local." },
+  {
+    id: "d14-faq-10",
+    question: "Moro fora do Brasil, posso participar?",
+    answer:
+      "Pode sim! Os desafios são liberados às 4h (horário de Brasília) justamente para atender a todos os fusos, e as aulas ao vivo ficam gravadas. E o pagamento pode ser feito na sua moeda local.",
+  },
 ];
 
 // Screenshots for the scrolling wall ("Mais depoimentos de quem já participou").

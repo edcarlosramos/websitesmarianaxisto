@@ -112,7 +112,7 @@ const MobileMenu = ({ isOpen, onClose, links = navLinks, cta = { label: "Garanti
                       <span className="font-display flex-1 text-[36px] leading-[1.1] transition-colors group-hover:text-lilac group-hover:italic group-focus-visible:text-lilac group-focus-visible:italic md:text-[40px]">
                         {link.title}
                       </span>
-                      <span aria-hidden="true" className="text-[20px] text-[#5a6199] transition-colors group-hover:text-lilac">
+                      <span aria-hidden="true" className="text-[20px] text-[color:var(--menu-arrow,#5a6199)] transition-colors group-hover:text-lilac">
                         →
                       </span>
                     </a>

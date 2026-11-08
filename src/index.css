@@ -61,6 +61,26 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Desafio 14 dias palette (set on <html> in desafio14d/index.html): the navy family turns black,
+   the wine family turns pink and the bluish neutrals turn warm. Gold (--color-lilac) is unchanged. */
+html.theme-desafio {
+  --color-navy-900: #0b0b0d;
+  --color-navy-800: #18181b;
+  --color-navy-700: #2c2a2d;
+  --color-ink: #070707;
+  --color-wine: #c2185b;
+  --color-wine-900: #9c1149;
+  --color-lavender: #f7f2f3;
+  --color-paper: #fdfbfb;
+  --color-muted: #5c5659;
+  --color-muted-dark: #c4babe;
+  --color-rule-dark: #38343a;
+  --color-rule-light: #e4d8db;
+  --color-rule-soft: #c9b6bb;
+  --menu-arrow: #6b6468;
+  --shadow-rgb: 0 0 0;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
