@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 
 import styles from "../../style";
 import HeroArt from "../../sections/HeroArt";
+import heroPhoto from "../../assets/desafio/mariana-hero-desafio.webp";
 import CtaBlock from "../CtaBlock";
 import Countdown from "../Countdown";
 import { ribbonPhrase } from "../content";
@@ -19,6 +20,7 @@ const art = {
   phrase: ribbonPhrase,
   tone: "dark",
   showNumeral: false,
+  photo: heroPhoto,
   stamp: { value: "Vagas", caption: "limitadas", valueClass: "text-[22cqw] italic", sheen: true },
 };
 

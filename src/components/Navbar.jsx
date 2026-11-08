@@ -16,18 +16,21 @@ const THEMES = {
       "bg-lavender shadow-[0_1px_0_var(--color-rule-light),0_8px_24px_-12px_rgb(18_21_46/0.25)] lg:bg-lavender/90 lg:backdrop-blur-md",
     link: "text-navy-800 hover:text-wine after:bg-wine",
     logo: "",
+    brand: "text-wine",
     menu: "",
   },
   dark: {
     scrolled: "on-dark bg-ink shadow-[0_1px_0_var(--color-rule-dark),0_8px_24px_-12px_rgb(0_0_0/0.6)] lg:bg-ink/85 lg:backdrop-blur-md",
     link: "text-lavender hover:text-lilac after:bg-lilac",
     logo: "brightness-0 invert",
+    brand: "text-lavender",
     menu: "ring-1 ring-rule-dark",
   },
 };
 
 // `links` are the in-page anchors; `cta` is the button on the right ({ label, href, note }).
-const Navbar = ({ links = navLinks, cta = { label: "Garantir minha vaga" }, theme = "light" }) => {
+// `brand` swaps the Comunidade Maker logo for a text wordmark (also used in the mobile menu).
+const Navbar = ({ links = navLinks, cta = { label: "Garantir minha vaga" }, theme = "light", brand }) => {
   const t = THEMES[theme];
   const [isOpen, setIsOpen] = useState(false);
   const close = useCallback(() => setIsOpen(false), []);
@@ -57,14 +60,18 @@ const Navbar = ({ links = navLinks, cta = { label: "Garantir minha vaga" }, them
             isScrolled ? "h-16 md:h-[72px] lg:h-20" : "h-20 md:h-24 lg:h-[104px]"
           }`}
         >
-          <a href="#inicio" aria-label="Comunidade Maker — início">
-            <img
-              src={logo}
-              alt="Comunidade Maker"
-              width="720"
-              height="251"
-              className={`h-9 w-auto md:h-11 lg:h-[52px] ${t.logo}`}
-            />
+          <a href="#inicio" aria-label={`${brand ?? "Comunidade Maker"} — início`}>
+            {brand ? (
+              <span className={`font-display text-[24px] leading-none italic md:text-[28px] lg:text-[32px] ${t.brand}`}>{brand}</span>
+            ) : (
+              <img
+                src={logo}
+                alt="Comunidade Maker"
+                width="720"
+                height="251"
+                className={`h-9 w-auto md:h-11 lg:h-[52px] ${t.logo}`}
+              />
+            )}
           </a>
 
           <nav aria-label="Principal" className="hidden lg:block">
@@ -89,7 +96,7 @@ const Navbar = ({ links = navLinks, cta = { label: "Garantir minha vaga" }, them
         </div>
       </motion.header>
 
-      <MobileMenu isOpen={isOpen} onClose={close} links={links} cta={cta} />
+      <MobileMenu isOpen={isOpen} onClose={close} links={links} cta={cta} brand={brand} />
     </>
   );
 };

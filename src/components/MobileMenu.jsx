@@ -12,7 +12,7 @@ import Ribbon from "./Ribbon";
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 // Full-screen menu on phones, right-side drawer over a dimmed page on tablets.
-const MobileMenu = ({ isOpen, onClose, links = navLinks, cta = { label: "Garantir minha vaga" } }) => {
+const MobileMenu = ({ isOpen, onClose, links = navLinks, cta = { label: "Garantir minha vaga" }, brand = "Comunidade Maker" }) => {
   const isTablet = useMediaQuery("(min-width: 768px)");
   const panelRef = useRef(null);
 
@@ -88,7 +88,7 @@ const MobileMenu = ({ isOpen, onClose, links = navLinks, cta = { label: "Garanti
             transition={{ duration: 0.36, ease: [0.2, 0, 0, 1] }}
           >
             <div className="flex items-center justify-between">
-              <p className="font-display text-[22px] italic text-lavender">Comunidade Maker</p>
+              <p className="font-display text-[22px] italic text-lavender">{brand}</p>
               <MenuButton isOpen onClick={onClose} />
             </div>
 

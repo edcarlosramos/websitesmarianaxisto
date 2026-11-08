@@ -24,7 +24,7 @@ const App = () => {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative w-full overflow-x-clip">
-        <Navbar theme="dark" links={navLinks} cta={{ label: cta.short, href: cta.href, note: cta.note, pulse: cta.pulse }} />
+        <Navbar theme="dark" brand="Desafio 14 dias" links={navLinks} cta={{ label: cta.short, href: cta.href, note: cta.note, pulse: cta.pulse }} />
         <main>
           <Hero />
           <Opening />
@@ -40,7 +40,7 @@ const App = () => {
           <Faq />
           <FinalCta />
         </main>
-        <Footer links={navLinks} tagline="Desafio Fale Inglês em 14 Dias: 20 minutos por dia, com correção individual da sua pronúncia." />
+        <Footer brand="Desafio 14 dias" links={navLinks} tagline="Desafio Fale Inglês em 14 Dias: 20 minutos por dia, com correção individual da sua pronúncia." />
       </div>
     </MotionConfig>
   );

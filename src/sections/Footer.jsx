@@ -13,12 +13,17 @@ const Column = ({ title, children }) => (
 
 const DEFAULT_TAGLINE = "Intensivo de conversação em inglês para mulheres que já estudaram — e querem, enfim, falar.";
 
-const Footer = ({ links = navLinks, tagline = DEFAULT_TAGLINE }) => (
+// `brand` swaps the logo for a text wordmark.
+const Footer = ({ links = navLinks, tagline = DEFAULT_TAGLINE, brand }) => (
   <footer className="bg-lavender pt-16 pb-10 md:pt-[72px] lg:pt-24">
     <div className={styles.container}>
       <div className="lg:flex lg:justify-between">
         <div>
-          <img src={logo} alt="Comunidade Maker" width="720" height="251" loading="lazy" className="h-[52px] w-auto md:h-[70px] lg:h-20" />
+          {brand ? (
+            <p className="font-display text-[34px] leading-none italic text-wine md:text-[42px] lg:text-[48px]">{brand}</p>
+          ) : (
+            <img src={logo} alt="Comunidade Maker" width="720" height="251" loading="lazy" className="h-[52px] w-auto md:h-[70px] lg:h-20" />
+          )}
           <p className="mt-6 max-w-[320px] font-sans text-[15px] leading-[1.6] text-navy-700">
             {tagline}
           </p>
@@ -57,7 +62,7 @@ const Footer = ({ links = navLinks, tagline = DEFAULT_TAGLINE }) => (
 
       <div className="mt-12 border-t border-rule-soft pt-6 lg:mt-11">
         <p className="font-sans text-[13px] leading-[1.5] text-muted">
-          © 2026 Comunidade Maker · Mariana Xisto. Todos os direitos reservados.
+          © 2026 {brand ?? "Comunidade Maker"} · Mariana Xisto. Todos os direitos reservados.
         </p>
       </div>
     </div>

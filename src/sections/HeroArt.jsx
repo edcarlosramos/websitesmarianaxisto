@@ -45,8 +45,9 @@ const TONES = {
   dark: { numeral: "text-gold", label: "text-gold", band: "var(--color-lilac)", text: "var(--color-ink)" },
 };
 
+// `photo` swaps the portrait (defaults to the home hero photo).
 // `showNumeral={false}` hides the big number and its label, leaving photo, ribbon and stamp.
-const HeroArt = ({ variant, numeral = "20", label = "semanas", phrase = ribbonPhrases.speech, tone = "light", showNumeral = true, stamp }) => {
+const HeroArt = ({ variant, numeral = "20", label = "semanas", phrase = ribbonPhrases.speech, tone = "light", showNumeral = true, stamp, photo = marianaHero }) => {
   const colors = TONES[tone];
   const art = ART[variant];
   const [bw, bh] = art.box;
@@ -86,7 +87,7 @@ const HeroArt = ({ variant, numeral = "20", label = "semanas", phrase = ribbonPh
       )}
 
       <motion.img
-        src={marianaHero}
+        src={photo}
         alt=""
         width="1000"
         height="1500"
