@@ -1,11 +1,6 @@
 # Hostinger (Apache/LiteSpeed): show the site's own 404 page for addresses that don't exist.
 ErrorDocument 404 /404.html
 
-# TEMPORARY: while the 14-day challenge is on sale, the home page sends visitors to /desafio14d/.
-# 302 (not 301) so browsers don't memorize it: deleting these two lines restores the home page for everyone.
-RewriteEngine On
-RewriteRule ^$ /desafio14d/ [R=302,L]
-
 # Long cache for the built files (their names change on every build); always revalidate the HTML.
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|webp|png|jpg|svg|woff2?)$">
